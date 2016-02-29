@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/source/.bowerrc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/.editorconfig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/.eslintrc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/.jshintrc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/.yo-rc.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/bower.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/changelog.md" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/gulp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/gulpfile.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/karma.conf.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/package.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/protractor.conf.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/src" charset="UTF-8" />
+  </component>
+</project>
