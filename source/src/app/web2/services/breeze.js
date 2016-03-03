@@ -12,8 +12,8 @@
     function Service(breeze, $q, $rootScope, $timeout,Upload) {
         //private variables
 
-        var serviceName = 'http://localhost:60305/breeze/home/';
-        //var serviceName = 'http://w2idemo.azurewebsites.net/breeze/home/';
+       // var serviceName = 'http://localhost:60305/breeze/home/';
+        var serviceName = 'http://w2idemo.azurewebsites.net/breeze/home/';
         var manager = new breeze.EntityManager(serviceName);
         //interface
         this.isBreezeReady     = false;

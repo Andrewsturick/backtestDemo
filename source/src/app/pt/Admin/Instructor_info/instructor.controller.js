@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -6,16 +6,32 @@
         .controller('InstructorController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl(instructorService,$state) {
+    function fnCtrl(instructorService,$scope, $state,$mdMedia) {
         var vm = this;
-      vm.items=instructorService.getData();
-      vm.getDetail = getDetail;
+        vm.items = instructorService.getData();
+        vm.getDetail = getDetail;
 
-        function getDetail(test) {
-            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor.insDetails", {
+
+        function openlist()
+        {
+            vm.isViewMobile = false;
+            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
+        }
+
+
+
+        function getDetail(test)
+        {
+            vm.isViewMobile = $mdMedia('xs');
+            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor.insDetails",
+                {
                 id: test.id
             });
 
         }
+        $scope.$on('closeItem', openlist);
+
+
+
     }
 })();

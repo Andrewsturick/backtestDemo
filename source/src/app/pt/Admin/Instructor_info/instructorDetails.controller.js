@@ -8,14 +8,13 @@
     /* @ngInject */
     function fnCtrl( $stateParams, instructorService,$state) {
         var vm = this;
-        vm.closeEmail=closeEmail;
+        vm.closeItem=closeItem;
         vm.deleteEmail=deleteEmail;
 
         vm.item =   instructorService.getDetail($stateParams.id)[0];
 
-        function closeEmail() {
-            //later on
-           // $scope.$emit('closeEmail');
+        function closeItem()
+        {
             $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
         }
 
