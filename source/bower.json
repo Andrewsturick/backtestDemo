@@ -37,7 +37,8 @@
       "satellizer":"",
       "angular-facebook":"",
       "angular-filter":"",
-      "angular-resizable":""
+      "angular-resizable":"",
+      "angular-video-bg": ""
   },
 
   "devDependencies": {
