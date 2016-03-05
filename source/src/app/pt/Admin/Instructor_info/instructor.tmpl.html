@@ -1,6 +1,6 @@
 <div class="email-inbox full-height overflow-hidden padded-content-page overlay-20" layout="row">
 
-    <md-button ng-click="vm.composeClick($event)" class="md-fab md-accent md-fab-bottom-right" aria-label="{{'EMAIL.COMPOSE_EMAIL' | translate}}">
+    <md-button ng-click="vm.composeClick()" class="md-fab md-accent md-fab-bottom-right" aria-label="{{'vm.test' | translate}}">
         <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
     </md-button>
 
@@ -19,7 +19,7 @@
 
                         <div class="md-list-item-text">
                             <div class="email-inbox-list-item-name-time" layout="row"
-                                 layout-align="space-between start">
+                                 layout-align="space-between right">
                                 <h3>{{item.name}}</h3>
                                 <p class="md-caption" am-time-ago="email.date"></p>
                             </div>
