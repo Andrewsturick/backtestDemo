@@ -23,6 +23,12 @@
                 controller: 'InstructorDetailsController',
                 controllerAs: 'vm'
             })
+            .state('triangular-no-scroll.admin-default-no-scroll.instructor.insDetails.dialog', {
+                url: '/:id',
+                templateUrl: 'app/pt/Admin/instructor_info/instructor_dialog.tmpl.html',
+                controller: 'instructor_dialogController',
+                controllerAs: 'vm'
+            })
 
 
             .state('triangular.admin-default.student_information', {

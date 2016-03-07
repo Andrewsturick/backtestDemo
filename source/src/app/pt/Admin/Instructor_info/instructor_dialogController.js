@@ -8,21 +8,27 @@
         .module('pt.Admin')
         .controller('instructor_dialogController', mycntrl);
 
-
-
     /* @ngInject */
-    function mycntrl($stateParams,$mdDialog)
+    function mycntrl($stateParams,instructorService,$scope)
     {
 
-            var vm = this;
+        var vm = this;
+        vm.closeItem=closeItem;
+        vm.deleteEmail=deleteEmail;
+
+        vm.item =   instructorService.getDetail($stateParams.id)[0];
+
+        function closeItem()
+        {
+             $scope.$emit('closeItem');
+        }
+
+        function deleteEmail() {
+            $scope.$emit('deleteEmail');
+        }
 
 
-            function init()
-            {
-                vm.id = $stateParams.id;
-            }
 
-            init();
         }
 
 

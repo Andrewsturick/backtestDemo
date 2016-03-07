@@ -6,19 +6,30 @@
         .controller('InstructorDetailsController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl( $stateParams, instructorService,$state,breezeService) {
+    function fnCtrl( $stateParams,$mdDialog, instructorService,$state,breezeService) {
         var vm = this;
         vm.closeItem = closeItem;
         vm.deleteEmail = deleteEmail;
+        vm.composeClick=composeClick;
 
         vm.item = instructorService.getDetail($stateParams.id)[0];
 
-        function closeItem() {
+        function closeItem()
+        {
             $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
         }
 
-        function deleteEmail() {
+        function deleteEmail()
+        {
             $scope.$emit('deleteEmail');
+        }
+        function composeClick()
+        {
+            $mdDialog.show({
+                controller: 'instructor_dialogController',
+                controllerAs: 'vm',
+                templateUrl: 'app/pt/Admin/instructor_info/instructor_dialog.tmpl.html',
+            })
         }
 
         vm.columns = [{

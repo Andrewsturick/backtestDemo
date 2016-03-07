@@ -10,7 +10,7 @@
         var vm = this;
         vm.items = instructorService.getData();
         vm.getDetail = getDetail;
-        vm.composeClick = composeClick;
+        //vm.composeClick = composeClick;
 
 
         function openlist()
@@ -18,14 +18,14 @@
             vm.isViewMobile = false;
             $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
         }
-        function composeClick()
-        {
-            $mdDialog.show({
-                controller: 'instructor_dialogController',
-                controllerAs: 'vm',
-                templateUrl: 'app/pt/Admin/instructor_info/instructor_dialog.tmpl.html',
-            })
-        }
+        //function composeClick()
+        //{
+        //    $mdDialog.show({
+        //        controller: 'instructor_dialogController',
+        //        controllerAs: 'vm',
+        //        templateUrl: 'app/pt/Admin/instructor_info/instructor_dialog.tmpl.html',
+        //    })
+        //}
 
 
 

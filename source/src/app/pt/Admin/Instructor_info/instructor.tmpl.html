@@ -1,9 +1,4 @@
 <div class="email-inbox full-height overflow-hidden " layout="row">
-
-    <md-button ng-click="vm.composeClick($event)" class="md-fab md-accent md-fab-bottom-right" aria-label="{{'EMAIL.COMPOSE_EMAIL' | translate}}">
-        <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
-    </md-button>
-
     <div class="email-inbox-list md-whiteframe-z1" flex="100" flex-gt-xs="50" flex-gt-lg="40" ng-show="!vm.isViewMobile" layout="column">
         <input type="text" ng-model="vm.mystyle">
         <md-content>
@@ -33,6 +28,9 @@
                 </md-list>
             </section>
         </md-content>
+        <md-button ng-click="vm.EditClick($event)" class="md-fab md-accent md-fab-bottom-right" aria-label="{{'EMAIL.COMPOSE_EMAIL' | translate}}">
+            <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
+        </md-button>
 
     </div>
 
