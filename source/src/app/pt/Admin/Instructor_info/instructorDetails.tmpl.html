@@ -7,18 +7,35 @@
 
             <div layout="row">
                 <div flex layout-align="left">
-                        <md-button ng-click="vm.backbutton()" class="md-accent">
+                        <md-button ng-click="vm.backbutton()">
                         <md-icon md-font-icon="zmdi zmdi-long-arrow-left"></md-icon>
                         </md-button>
                 </div>
+                <div flex style="margin-left: 300px;">
+                <md-menu>
+                    <md-button class="md-icon-button" aria-label="Open email interactions menu" ng-click="menuClick($event);$mdOpenMenu();">
+                        <md-icon md-font-icon="zmdi zmdi-more-vert"></md-icon>
+                    </md-button>
 
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="vm.delete_instructor()">
+                                <md-icon md-font-icon="zmdi zmdi-delete"></md-icon>
+                                <span translate>DELETE</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item>
+                            <md-button ng-click="vm.Edit_instructor()">
+                                <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
+                                <span translate>Edit</span>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+
+                </md-menu>
+                </div>
             </div>
-            <!--<div layout-align="column" flex="10" >-->
-                <!--<h2>jfjf</h2>-->
-                <!--<md-button ng-click="vm.composeClick($event)" class="md-accent">-->
-                   <!--<md-icon md-font-icon="zmdi zmdi-long-arrow-left"></md-icon>-->
-                <!--</md-button>-->
-            <!--</div>-->
 
 
 
