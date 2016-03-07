@@ -1,208 +1,64 @@
-<!--<div >-->
 
-<!--&lt;!&ndash;<div layout="row" layout-align="center">&ndash;&gt;-->
-<!--&lt;!&ndash;<p flex="70"  flex-xs="90" class="md-headline font-weight-300 text-center text-light" translate>{{vm.item.name}}</p>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<div layout-margin="10" >
 
-<!--<div flex layout="row" class="md-headline font-weight-300 text-center text-light"  layout-align="center center" layout-fill>-->
+    <tri-widget md-scroll-shrink   background-image="assets/images/avatars/avatar-4.png"  style="height:450px;">
 
-<!--<div flex="90" class="md-whiteframe-z1 margin-top-10" tri-wizard>-->
+        <h2 style="margin-top: 400px;margin-left: 10px;"><u>Name :<em>{{vm.item.name}}</em></u></h2>
 
-<!--&lt;!&ndash;<md-toolbar class="md-primary">&ndash;&gt;-->
+    </tri-widget>
 
-<!--<div class="md-toolbar-tools" layout="row" layout-align="space-between center">-->
-<!--<h2>Form Wizard</h2><h2> {{triWizard.progress}}% <span translate>COMPLETE</span></h2>-->
-<!--<div layout="row" layout-align="space-between center">-->
-<!--<span class="md-caption" am-time-ago="vm.email.date"></span>-->
-<!--<md-menu>-->
-<!--<md-button class="md-icon-button" aria-label="Open email interactions menu" ng-click="menuClick($event);$mdOpenMenu();">-->
-<!--<md-icon md-font-icon="zmdi zmdi-more-vert"></md-icon>-->
-<!--</md-button>-->
-
-<!--<md-menu-content width="3">-->
-<!--<md-menu-item>-->
-<!--<md-button ng-click="vm.deleteEmail()">-->
-<!--<md-icon md-font-icon="zmdi zmdi-delete"></md-icon>-->
-<!--<span translate>DELETE</span>-->
-<!--</md-button>-->
-
-<!--</md-menu-item>-->
-<!--<md-menu-divider></md-menu-divider>-->
-<!--<md-menu-item>-->
-<!--<md-button ng-click="vm.closeItem()">-->
-<!--<md-icon md-font-icon="zmdi zmdi-close"></md-icon>-->
-<!--<span translate>CLOSE</span>-->
-<!--</md-button>-->
-<!--</md-menu-item>-->
-<!--</md-menu-content>-->
-<!--</md-menu>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<md-progress-linear class="md-accent padding-bottom-10" md-mode="determinate" ng-value="triWizard.progress"></md-progress-linear>-->
-
-<!--</md-toolbar>-->
-
-<!--<md-tabs class="md-primary" layout-fill md-selected="triWizard.currentStep" md-dynamic-height>-->
-<!--<md-tab id="account">-->
-
-<!--<md-tab-label>-->
-<!--&lt;!&ndash;<span class="oxy-step-label">1</span>&ndash;&gt;-->
-<!--<span translate>Instructor detail</span>-->
-<!--</md-tab-label>-->
-
-<!--<md-tab-body>-->
-
-<!--<md-content class="md-padding">-->
-
-<!--<form name="instructorForm" tri-wizard-form novalidate>-->
-<!--<div>-->
-<!--<md-input-container class="md-block">-->
-<!--<label translate>Instructor Name</label>-->
-<!--<input name="username" ng-model="vm.item.name"  required >-->
-
-<!--<div ng-messages="instructorForm.username.$error">-->
-<!--<div ng-message when="required">-->
-<!--<span translate>Please Enter Instructor Name</span>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--</md-input-container>-->
-
-<!--<md-input-container class="md-block">-->
-<!--<label>Instructor Email</label>-->
-<!--<input type="email" name="email" ng-model='vm.item.name' required>-->
-<!--<div ng-messages="instructorForm.email.$error">-->
-
-<!--<div ng-message when="required">-->
-<!--<span translate>Please Enter Instructor Email</span>-->
-<!--</div>-->
-
-<!--<div ng-message when="email">-->
-<!--<span translate>Please Enter Valid Email</span>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--</md-input-container>-->
-
-<!--<div layout layout-xs="column" flex>-->
-<!--<md-input-container flex>-->
-<!--<label translate>Password</label>-->
-<!--<input type="password" name="password" ng-model="instructorpassword" required>-->
-<!--<div ng-messages="instructorForm.password.$error">-->
-<!--<div ng-message when="required">-->
-<!--<span translate>Please Enter Instructor Password</span>-->
-<!--</div>-->
-<!--</div>-->
-<!--</md-input-container>-->
-<!--<md-input-container flex>-->
-<!--<label translate>confirm password</label>-->
-<!--<input type="password" name="passwordConfirm" ng-model="instructorpasswordConfirm" required>-->
-<!--<div ng-messages="instructorForm.passwordConfirm.$error">-->
-<!--<div ng-message when="required">-->
-<!--<span translate>Please Enter confirm Password</span>-->
-<!--</div>-->
-<!--</div>-->
-<!--</md-input-container>-->
-<!--</div>-->
-
-<!--<md-input-container class="md-block">-->
-<!--<label translate>Instructor Age</label>-->
-<!--<input name="age" ng-model="vm.item.age"  required >-->
-<!--<div ng-messages="instructorForm.age.$error">-->
-<!--<div ng-message when="required">-->
-<!--<span translate>Please Enter Instructor Age</span>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--</md-input-container>-->
-
-<!--<md-input-container class="md-block">-->
-<!--<label translate>Instructor Date of joining</label>-->
-<!--<input name="doj" ng-model="vm.item.doj"  required >-->
-<!--<div ng-messages="instructorForm.doj.$error">-->
-<!--<div ng-message when="required">-->
-<!--<span translate>Please Enter Instructor Date of joinig</span>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--</md-input-container>-->
-<!--</div>-->
-
-<!--</form>-->
-
-<!--</md-content>-->
-
-<!--</md-tab-body>-->
-
-<!--</md-tab>-->
-
-<!--</md-tabs>-->
+    <div class="widget-blog-text" ng-cloak="">
+        <md-fab-speed-dial md-direction="left" class="md-fling" style="margin-top: -40px;margin-left: 200px;">
+            <md-fab-trigger>
+                <md-button aria-label="share this post" class="md-fab md-warn">
+                    <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <md-button aria-label="twitter" class="md-fab md-raised md-mini"
+                           ng-click="share('Shared on Twitter', $event)">
+                    <md-icon md-font-icon="fa fa-twitter"></md-icon>
+                </md-button>
+                <md-button aria-label="facebook" class="md-fab md-raised md-mini"
+                           ng-click="share('Shared on Facebook', $event)">
+                    <md-icon md-font-icon="fa fa-facebook"></md-icon>
+                </md-button>
+                <md-button aria-label="google-plus" class="md-fab md-raised md-mini"
+                           ng-click="share('Shared on Google+', $event)">
+                    <md-icon md-font-icon="fa fa-google-plus"></md-icon>
+                </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial >
 
 
-<!--<div class="wizard-navbar" layout-fill layout-padding layout="row" layout-align="end center">-->
-<!--<md-button class="md-primary md-raised" ng-click="triWizard.prevStep()" ng-hide="triWizard.currentStep > 2" ng-disabled="triWizard.prevStepDisabled()" translate="FORMS.WIZARD.PREV"></md-button>-->
-<!--<md-button class="md-primary md-raised" ng-click="triWizard.nextStep()" ng-hide="triWizard.progress == 100 && triWizard.currentStep > 1" ng-disabled="triWizard.nextStepDisabled()" translate="FORMS.WIZARD.NEXT"></md-button>-->
-<!--<md-button class="md-accent md-raised" ng-click="triWizard.currentStep = 3" ng-show="triWizard.progress == 100 && triWizard.currentStep < 3" translate="FORMS.WIZARD.SEND"></md-button>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--</div>-->
-<!--</div>-->
-
-<!--</div>-->
-
-
-<!--<main>-->
-<!--<div class="content">-->
-<!--<resizable r-directions="['bottom']" r-flex="true">-->
-<!--<img src="assets/images/avatars/avatar-4.png">-->
-<!--</resizable>-->
-<!--</div>-->
-<!--</main>-->
-<div layout-margin="50" >
-    <tri-widget class="widget-blog" flex >
-        <img src="assets/images/avatars/avatar-4.png">
-
-        <div class="widget-blog-text " ng-cloak="">
-            <md-fab-speed-dial md-direction="up" class="md-fling">
-                <md-fab-trigger>
-                    <md-button aria-label="share this post" class="md-fab md-warn">
-                        <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
-                    </md-button>
-                </md-fab-trigger>
-                <md-fab-actions>
-                    <md-button aria-label="twitter" class="md-fab md-raised md-mini"
-                               ng-click="share('Shared on Twitter', $event)">
-                        <md-icon md-font-icon="fa fa-twitter"></md-icon>
-                    </md-button>
-                    <md-button aria-label="facebook" class="md-fab md-raised md-mini"
-                               ng-click="share('Shared on Facebook', $event)">
-                        <md-icon md-font-icon="fa fa-facebook"></md-icon>
-                    </md-button>
-                    <md-button aria-label="google-plus" class="md-fab md-raised md-mini"
-                               ng-click="share('Shared on Google+', $event)">
-                        <md-icon md-font-icon="fa fa-google-plus"></md-icon>
-                    </md-button>
-                </md-fab-actions>
-            </md-fab-speed-dial>
-            <h2><u>Name :<em>{{vm.item.name}}</em></u></h2>
-            <tri-widget>
+        <tri-widget style="background-color: #1c9aa0;margin-top:-20px;">
+            <h3>About us</h3>
             <md-divider></md-divider>
+            <div style="background-color: #ffffff">
             <h4><b>Style:</b>{{vm.item.style}}</h4>
             <h4><b>Date of join:</b>{{vm.item.doj}}</h4>
             <h4><b>Phone Number: </b>#############</h4>
-            <md-divider></md-divider>
-            </tri-widget>
+            </div>
+        </tri-widget>
+
+
+        <tri-widget style="background-color: #1c9aa0;margin-top: 10px;">
             <h2>Student List</h2>
             <md-divider></md-divider>
-            <tri-widget>
-                <md-list flex>
-                    <tri-table class="elements-image-table-example" columns="::vm.columns" contents="vm.student" page-size="2"></tri-table>
-                </md-list>
-            </tri-widget>
+                <div style="background-color: #ffffff" content-layout="row">
+                    <md-list flex>
 
-        </div>
+                        <md-list-item ng-repeat="x in vm.students">
+                            <img class="md-avatar" ng-src="assets/images/avatars/avatar-4.png">
+                            <p>{{x.firstName}}</p>
+                            <md-icon md-font-icon="zmdi zmdi-chat" class="md-primary"></md-icon>
+                            <md-divider ng-hide="$last"></md-divider>
+                        </md-list-item>
 
-    </tri-widget>
-</div>'
+                    </md-list>
+                </div>
+        </tri-widget>
+
+    </div>
+
+</div>
