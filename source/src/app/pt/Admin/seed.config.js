@@ -24,6 +24,13 @@
                 controllerAs: 'vm'
             })
 
+            .state('triangular-no-scroll.admin-default-no-scroll.instructor.insEdit', {
+                url: '/:id',
+                templateUrl: 'app/pt/Admin/instructor_info/instructorEdit.tmpl.html',
+                controller: 'InstructorEditController',
+                controllerAs: 'vm'
+            })
+
 
             .state('triangular.admin-default.student_information', {
                 url: '/Admin/blank2',
