@@ -12,15 +12,22 @@
         $stateProvider
 
             .state('triangular-no-scroll.admin-default-no-scroll.instructor', {
-                url: '/Admin/instructor',
+                url: '/Admin/instructor/',
                 templateUrl: 'app/pt/Admin/instructor_info/instructor.tmpl.html',
                 controller: 'InstructorController',
                 controllerAs: 'vm'
             })
+            //Todo:rename this state to readonly
             .state('triangular-no-scroll.admin-default-no-scroll.instructor.insDetails', {
-                url: '/:id',
+                url: 'readOnly/:id',
                 templateUrl: 'app/pt/Admin/instructor_info/instructorDetails.tmpl.html',
                 controller: 'InstructorDetailsController',
+                controllerAs: 'vm'
+            })
+            .state('triangular-no-scroll.admin-default-no-scroll.instructor.insEdit', {
+                url: 'edit/:id',
+                templateUrl: 'app/pt/Admin/instructor_info/instructorEdit.tmpl.html',
+                controller: 'InstructorEditController',
                 controllerAs: 'vm'
             })
 
