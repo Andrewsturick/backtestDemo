@@ -8,12 +8,15 @@
     /* @ngInject */
     function fnCtrl( $stateParams, instructorService,$state,breezeService) {
         var vm = this;
-        vm.closeItem = closeItem;
+        //vm.closeItem = closeItem;
         vm.deleteEmail = deleteEmail;
+        vm.backbutton=backbutton;
 
         vm.item = instructorService.getDetail($stateParams.id)[0];
 
-        function closeItem() {
+
+
+        function backbutton() {
             $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
         }
 
@@ -21,20 +24,6 @@
             $scope.$emit('deleteEmail');
         }
 
-        vm.columns = [{
-            title: '',
-            field: 'thumb',
-            filter: 'tableImage'
-        },{
-            title: 'Name',
-            field: 'firstName'
-        },{
-            title: 'contact no',
-            field: 'contactNo'
-        },{
-            title: 'City',
-            field: 'City'
-        }];
 
 
         breezeService.getEntities('students').then(function (data) {

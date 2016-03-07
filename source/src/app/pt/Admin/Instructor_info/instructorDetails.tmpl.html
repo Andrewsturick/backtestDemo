@@ -3,8 +3,28 @@
 
     <tri-widget md-scroll-shrink   background-image="assets/images/avatars/avatar-4.png"  style="height:450px;">
 
-        <h2 style="margin-top: 400px;margin-left: 10px;"><u>Name :<em>{{vm.item.name}}</em></u></h2>
+        <div layout-align="row">
 
+            <div layout="row">
+                <div flex layout-align="left">
+                        <md-button ng-click="vm.backbutton()" class="md-accent">
+                        <md-icon md-font-icon="zmdi zmdi-long-arrow-left"></md-icon>
+                        </md-button>
+                </div>
+
+            </div>
+            <!--<div layout-align="column" flex="10" >-->
+                <!--<h2>jfjf</h2>-->
+                <!--<md-button ng-click="vm.composeClick($event)" class="md-accent">-->
+                   <!--<md-icon md-font-icon="zmdi zmdi-long-arrow-left"></md-icon>-->
+                <!--</md-button>-->
+            <!--</div>-->
+
+
+
+        </div>
+
+        <h2 style="margin-top: 350px;margin-left: 10px;"><u>Name :<em>{{vm.item.name}}</em></u></h2>
     </tri-widget>
 
     <div class="widget-blog-text" ng-cloak="">
