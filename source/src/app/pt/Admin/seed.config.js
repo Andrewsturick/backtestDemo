@@ -31,42 +31,54 @@
                 controllerAs: 'vm'
             })
 
-
-
-
-            .state('triangular.admin-default.student_information', {
-                url: '/Admin/blank2',
-                templateUrl: 'app/pt/Admin/blank2.tmpl.html'
+            .state('triangular-no-scroll.admin-default-no-scroll.Location', {
+                url: '/Admin/location/',
+                templateUrl: 'app/pt/Admin/Location_info/location.tmpl.html',
+                controller: 'LocationController',
+                controllerAs: 'vm'
+            })
+            .state('triangular-no-scroll.admin-default-no-scroll.Location.locDetails', {
+                url: 'Details/:id',
+                templateUrl: 'app/pt/Admin/Location_info/location_Details.tmpl.html',
+                controller: 'LocationDetailsController',
+                controllerAs: 'vm'
+            })
+            .state('triangular-no-scroll.admin-default-no-scroll.Timeslot', {
+            url: '/Admin/timeslot/',
+            templateUrl: 'app/pt/Admin/Timeslot_info/timeslot.tmpl.html',
+            controller: 'TimeslotController',
+            controllerAs: 'vm'
+        })
+            .state('triangular-no-scroll.admin-default-no-scroll.Timeslot.time_Details', {
+                url: '/Details/:id/',
+                templateUrl: 'app/pt/Admin/Timeslot_info/timeslot_Details.tmpl.html',
+                controller: 'TimeslotDetailsController',
+                controllerAs: 'vm'
             })
 
-            .state('triangular.admin-default.new_information', {
-                url: '/Admin/blank3',
-                templateUrl: 'app/pt/Admin/blank3.tmpl.html'
-            });
 
-
-        //triMenuProvider.addMenu({
-        //    name: 'Admin',
-        //    icon: 'zmdi zmdi-view-list-alt',
-        //    type: 'dropdown',
-        //    priority: 1.5,
-        //    children: [{
-        //        name: 'Instructor',
-        //        state: 'triangular-no-scroll.admin-default-no-scroll.instructor',
-        //        icon: 'zmdi zmdi-account-box',
-        //        type: 'link'
-        //    },{
-        //        name: 'student_information',
-        //        state: 'triangular.admin-default.student_information',
-        //        icon: 'zmdi zmdi-library',
-        //        type: 'link'
-        //    },{
-        //        name: 'blank-3',
-        //        state: 'triangular.admin-default.extra-blank',
-        //        icon: 'zmdi zmdi-view-list-alt',
-        //        type: 'link'
-        //    }]
-        //});
+        triMenuProvider.addMenu({
+            name: 'Admin',
+            icon: 'zmdi zmdi-view-list-alt',
+            type: 'dropdown',
+            priority: 1.5,
+            children: [{
+                name: 'Instructor',
+                state: 'triangular-no-scroll.admin-default-no-scroll.instructor',
+                icon: 'zmdi zmdi-account-box',
+                type: 'link'
+            },{
+                name: 'Location',
+                state: 'triangular-no-scroll.admin-default-no-scroll.Location',
+                icon: 'zmdi zmdi-globe-alt',
+                type: 'link'
+            },{
+                name: 'Timeslot',
+                state: 'triangular-no-scroll.admin-default-no-scroll.Timeslot',
+                icon: 'zmdi zmdi-time',
+                type: 'link'
+            }]
+        });
 
         $authProvider.facebook({
             clientId: '255268371341858'
