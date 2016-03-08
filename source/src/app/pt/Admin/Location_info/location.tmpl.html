@@ -1,23 +1,21 @@
 <div class="email-inbox full-height overflow-hidden " layout="row">
     <div class="email-inbox-list md-whiteframe-z1" flex="100" flex-gt-xs="50" flex-gt-lg="40" ng-show="!vm.isViewMobile" layout="column">
-
         <md-content>
-            <section class="email-inbox-list-animate-repeat" ng-repeat="(key, value) in vm.items | groupBy:'title' " ng-if="vm.items.length > 0">
-                <md-subheader  class="md-primary">title:{{::key}}</md-subheader>
+            <section class="email-inbox-list-animate-repeat">
                 <md-divider></md-divider>
                 <md-list>
                     <md-list-item class="email-inbox-list-item email-inbox-list-animate-repeat md-3-line"
-                                  <!--ng-repeat="item in value" ng-click="vm.getDetail(item)"-->
-                                  ng-click="vm.getDetail(item)" ng-repeat="x in value"
-                                  ng-class="{ active: selectedMail === item.id,'email-inbox-list-item-unread': item.unread }">
-                        <img class="md-avatar animate" ng-src="assets/images/avatars/avatar-4.png">
+                                  ng-repeat="item in vm.items" ng-click="vm.getDetail(item.Id)"
+                                  ng-class="{ active: selectedMail === item.id, 'email-inbox-list-item-unread': item.unread }">
+                        <img class="md-avatar animate" ng-src="assets/images/avatars/avatar-4.png"
+                             alt="{{::email.from.name}}">
 
                         <div class="md-list-item-text">
                             <div class="email-inbox-list-item-name-time" layout="row"
                                  layout-align="space-between start">
                                 <h3>{{item.title}}</h3>
                             </div>
-          `               </div>
+                        </div>
 
                         <md-divider></md-divider>
                     </md-list-item>
@@ -25,7 +23,6 @@
                 </md-list>
             </section>
         </md-content>
-
     </div>
 
     <div class="animate-wrapper" layout="column" layout-align="start center" flex>
