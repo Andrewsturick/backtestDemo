@@ -9,10 +9,10 @@
         .controller('LocationController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl(locationmodel,contactmodel, $scope, $timeout,$mdMedia, $mdToast,$state, instructormodel, breezeService,Upload) {
+    function fnCtrl(locationmodel,contactmodel, $scope, $timeout,$mdMedia, $mdToast,$state, instructormodel, breezeService) {
         var vm = this;
         vm.getDetail = getDetail;
-
+        vm.items = locationmodel.getData();
 
         function openlist()
         {

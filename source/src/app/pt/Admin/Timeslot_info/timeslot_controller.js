@@ -24,7 +24,7 @@
         function getDetail(test)
         {
             vm.isViewMobile = $mdMedia('xs');
-            $state.go("triangular-no-scroll.admin-default-no-scroll.timeslot.locDetails",
+            $state.go("triangular-no-scroll.admin-default-no-scroll.timeslot.timeDetails",
                 {
                     id: test.id
                 });

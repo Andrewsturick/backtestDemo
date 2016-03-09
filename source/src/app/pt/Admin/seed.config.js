@@ -31,25 +31,25 @@
                 controllerAs: 'vm'
             })
 
-            .state('triangular-no-scroll.admin-default-no-scroll.Location', {
+            .state('triangular-no-scroll.admin-default-no-scroll.location', {
                 url: '/Admin/location/',
                 templateUrl: 'app/pt/Admin/Location_info/location.tmpl.html',
                 controller: 'LocationController',
                 controllerAs: 'vm'
             })
-            .state('triangular-no-scroll.admin-default-no-scroll.Location.locDetails', {
+            .state('triangular-no-scroll.admin-default-no-scroll.location.locDetails', {
                 url: 'Details/:id',
                 templateUrl: 'app/pt/Admin/Location_info/location_Details.tmpl.html',
                 controller: 'LocationDetailsController',
                 controllerAs: 'vm'
             })
-            .state('triangular-no-scroll.admin-default-no-scroll.Timeslot', {
+            .state('triangular-no-scroll.admin-default-no-scroll.timeslot', {
             url: '/Admin/timeslot/',
             templateUrl: 'app/pt/Admin/Timeslot_info/timeslot.tmpl.html',
             controller: 'TimeslotController',
             controllerAs: 'vm'
         })
-            .state('triangular-no-scroll.admin-default-no-scroll.Timeslot.time_Details', {
+            .state('triangular-no-scroll.admin-default-no-scroll.timeslot.timeDetails', {
                 url: '/Details/:id/',
                 templateUrl: 'app/pt/Admin/Timeslot_info/timeslot_Details.tmpl.html',
                 controller: 'TimeslotDetailsController',
@@ -69,12 +69,12 @@
                 type: 'link'
             },{
                 name: 'Location',
-                state: 'triangular-no-scroll.admin-default-no-scroll.Location',
+                state: 'triangular-no-scroll.admin-default-no-scroll.location',
                 icon: 'zmdi zmdi-globe-alt',
                 type: 'link'
             },{
                 name: 'Timeslot',
-                state: 'triangular-no-scroll.admin-default-no-scroll.Timeslot',
+                state: 'triangular-no-scroll.admin-default-no-scroll.timeslot',
                 icon: 'zmdi zmdi-time',
                 type: 'link'
             }]

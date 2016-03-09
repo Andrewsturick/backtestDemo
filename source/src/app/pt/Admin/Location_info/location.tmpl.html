@@ -1,9 +1,10 @@
 <div class="email-inbox full-height overflow-hidden " layout="row">
     <div class="email-inbox-list md-whiteframe-z1" flex="100" flex-gt-xs="50" flex-gt-lg="40" ng-show="!vm.isViewMobile" layout="column">
-        <md-content>
-            <section class="email-inbox-list-animate-repeat">
+        <md-content >
+            <section class="email-inbox-list-animate-repeat" >
+                <div style="background-color: skyblue">
                 <md-divider></md-divider>
-                <md-list>
+                <md-list >
                     <md-list-item class="email-inbox-list-item email-inbox-list-animate-repeat md-3-line"
                                   ng-repeat="item in vm.items" ng-click="vm.getDetail(item.Id)"
                                   ng-class="{ active: selectedMail === item.id, 'email-inbox-list-item-unread': item.unread }">
@@ -21,6 +22,7 @@
                     </md-list-item>
 
                 </md-list>
+                    </div>
             </section>
         </md-content>
     </div>
