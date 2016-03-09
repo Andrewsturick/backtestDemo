@@ -5,10 +5,9 @@
         .module('pt.Admin')
         .controller('InstructorDetailsController', fnCtrl);
 
-    /* @ngInject */
-    function fnCtrl( $stateParams, instructorService,$state,breezeService) {
+        function fnCtrl( $stateParams, instructorService,$state,breezeService) {
         var vm = this;
-        //vm.closeItem = closeItem;
+
         vm.deleteEmail = deleteEmail;
         vm.backbutton=backbutton;
         vm.Edit_instructor = Edit_instructor;

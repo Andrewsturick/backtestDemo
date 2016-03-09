@@ -140,7 +140,7 @@
                             type: 'link'
                         },{
                             name: 'student_information',
-                            state: 'triangular.admin-default.student_information',
+                            state: 'triangular-no-scroll.admin-default-no-scroll.student',
                             icon: 'zmdi zmdi-library',
                             type: 'link'
                         },{

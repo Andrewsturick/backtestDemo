@@ -19,14 +19,14 @@
 
                         <md-menu-content width="3">
                             <md-menu-item>
-                                <md-button ng-click="vm.delete_instructor()">
+                                <md-button ng-click="vm.delete_student()">
                                     <md-icon md-font-icon="zmdi zmdi-delete"></md-icon>
                                     <span translate>DELETE</span>
                                 </md-button>
                             </md-menu-item>
                             <md-menu-divider></md-menu-divider>
                             <md-menu-item>
-                                <md-button ng-click="vm.Edit_instructor()">
+                                <md-button ng-click="vm.Edit_student()">
                                     <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
                                     <span translate>Edit</span>
                                 </md-button>
@@ -41,7 +41,7 @@
 
         </div>
 
-        <h2 style="margin-top: 350px;margin-left: 10px;"><u>Name :<em>{{vm.item.Name}}</em></u></h2>
+        <h2 style="margin-top: 350px;margin-left: 10px;"><u>Name :<em>{{vm.item.firstName}}</em></u></h2>
     </tri-widget>
 
     <div class="widget-blog-text" ng-cloak="">
@@ -72,9 +72,9 @@
             <h3>About us</h3>
             <md-divider></md-divider>
             <div style="background-color: #ffffff">
-                <h4><b>Style:</b>{{vm.item.Style}}</h4>
-                <h4><b>Date of join:</b>{{vm.item.Id}}</h4>
-                <h4><b>Phone Number: </b>#############</h4>
+                <h4><b>Address:</b>{{vm.item.address}}</h4>
+                <h4><b>Date of birth:</b>{{vm.item.dob}}</h4>
+                <h4><b>Phone Number: </b>{{vm.item.contactNo}}</h4>
             </div>
         </tri-widget>
 

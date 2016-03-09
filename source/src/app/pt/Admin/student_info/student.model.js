@@ -6,22 +6,18 @@
 
     angular
         .module('pt.Admin')
-        .service('instructorService', fn);
+        .service('studentService', fn);
 
     /* @ngInject */
     function fn(breezeService)
     {
 
         var a=[];
-
-        breezeService.getEntities('instructors').then(function (data) {
-
-             a = data.results;
-        });
-
-
         this.getDetail = getDetail;
 
+        breezeService.getEntities('students').then(function (data) {
+            a = data.results;
+        });
 
 
         function getDetail(id)

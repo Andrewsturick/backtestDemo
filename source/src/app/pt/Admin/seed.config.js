@@ -30,14 +30,36 @@
                 controller: 'InstructorEditController',
                 controllerAs: 'vm'
             })
-
-
-
-
-            .state('triangular.admin-default.student_information', {
-                url: '/Admin/blank2',
-                templateUrl: 'app/pt/Admin/blank2.tmpl.html'
+            .state('triangular-no-scroll.admin-default-no-scroll.instructor.insAdd', {
+                url: 'add/',
+                templateUrl: 'app/pt/Admin/instructor_info/add_instructor.tmpl.html',
+                controller: 'InstructorAddController',
+                controllerAs: 'vm'
             })
+
+
+
+
+            .state('triangular-no-scroll.admin-default-no-scroll.student', {
+                url: '/Admin/student',
+                templateUrl: 'app/pt/Admin/student_info/student.tmpl.html',
+                controller: 'studentController',
+                controllerAs: 'vm'
+            })
+            .state('triangular-no-scroll.admin-default-no-scroll.student.studentDetails', {
+                url: 'readOnly/:id',
+                templateUrl: 'app/pt/Admin/student_info/studentDetails.tmpl.html',
+                controller: 'studentDetailsController',
+                controllerAs: 'vm'
+            })
+            .state('triangular-no-scroll.admin-default-no-scroll.student.studentEdit', {
+                url: 'edit/:id',
+                templateUrl: 'app/pt/Admin/student_info/studentEdit.tmpl.html',
+                controller: 'studentEditController',
+                controllerAs: 'vm'
+            })
+
+
 
             .state('triangular.admin-default.new_information', {
                 url: '/Admin/blank3',

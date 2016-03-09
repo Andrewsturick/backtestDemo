@@ -5,28 +5,27 @@
         .module('pt.Admin')
         .controller('InstructorController', fnCtrl);
 
-    /* @ngInject */
-    function fnCtrl(instructorService,$scope, $state,$mdMedia,$mdDialog) {
-        var vm = this;
-        vm.items = instructorService.getData();
-        vm.getDetail = getDetail;
-        //vm.composeClick = composeClick;
 
+    function fnCtrl(breezeService,$scope, $state,$mdMedia,$mdDialog) {
+        var vm = this;
+        vm.getDetail = getDetail;
+        vm.Add_instructor=Add_instructor;
+
+        breezeService.getEntities('instructors').then(function (data) {
+            vm.items = data.results;
+        });
 
         function openlist()
         {
             vm.isViewMobile = false;
             $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
         }
-        //function composeClick()
-        //{
-        //    $mdDialog.show({
-        //        controller: 'instructor_dialogController',
-        //        controllerAs: 'vm',
-        //        templateUrl: 'app/pt/Admin/instructor_info/instructor_dialog.tmpl.html',
-        //    })
-        //}
 
+
+        function Add_instructor()
+        {
+            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor.insAdd");
+        }
 
 
         function getDetail(test)
@@ -34,11 +33,13 @@
             vm.isViewMobile = $mdMedia('xs');
             $state.go("triangular-no-scroll.admin-default-no-scroll.instructor.insDetails",
                 {
-                id: test.id
+                id: test.Id
             });
 
         }
         $scope.$on('closeItem', openlist);
+
+
 
 
 
