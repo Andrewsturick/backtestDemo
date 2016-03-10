@@ -30,21 +30,15 @@
                 controller: 'InstructorEditController',
                 controllerAs: 'vm'
             })
-
-            .state('triangular-no-scroll.admin-default-no-scroll.location', {
-                url: '/Admin/location/',
-                templateUrl: 'app/pt/Admin/Location_info/location.tmpl.html',
-                controller: 'LocationController',
+            .state('triangular-no-scroll.admin-default-no-scroll.instructor.insAdd', {
+                url: 'add/',
+                templateUrl: 'app/pt/Admin/instructor_info/add_instructor.tmpl.html',
+                controller: 'InstructorAddController',
                 controllerAs: 'vm'
             })
 
-            .state('triangular-no-scroll.admin-default-no-scroll.location.locDetails',
-                {
-                url: 'Details/:id',
-                templateUrl: 'app/pt/Admin/Location_info/location_Details.tmpl.html',
-                controller: 'LocationDetailsController',
-                controllerAs: 'vm'
-            })
+
+
 
             .state('triangular-no-scroll.admin-default-no-scroll.student', {
                 url: '/Admin/student',
@@ -58,13 +52,14 @@
                 controller: 'studentDetailsController',
                 controllerAs: 'vm'
             })
-
             .state('triangular-no-scroll.admin-default-no-scroll.student.studentEdit', {
                 url: 'edit/:id',
                 templateUrl: 'app/pt/Admin/student_info/studentEdit.tmpl.html',
                 controller: 'studentEditController',
                 controllerAs: 'vm'
             })
+
+
 
             .state('triangular-no-scroll.admin-default-no-scroll.timeslot', {
                 url: '/Admin/timeslot/',
@@ -79,39 +74,43 @@
                 controllerAs: 'vm'
             })
 
-
-        triMenuProvider.addMenu(
-            {
-            name: 'Admin',
-            icon: 'zmdi zmdi-view-list-alt',
-            type: 'dropdown',
-            priority: 1.5,
-            children: [{
-                name: 'Instructor',
-                state: 'triangular-no-scroll.admin-default-no-scroll.instructor',
-                icon: 'zmdi zmdi-account-box',
-                type: 'link'
-            },{
-                name: 'Location',
-                state: 'triangular-no-scroll.admin-default-no-scroll.location',
-                icon: 'zmdi zmdi-globe-alt',
-                type: 'link'
-            },{
-                name: 'Timeslot',
-                state: 'triangular-no-scroll.admin-default-no-scroll.timeslot',
-                icon: 'zmdi zmdi-time',
-                type: 'link'
-            },
+            .state('triangular-no-scroll.admin-default-no-scroll.location', {
+                url: '/Admin/location/',
+                templateUrl: 'app/pt/Admin/Location_info/location.tmpl.html',
+                controller: 'LocationController',
+                controllerAs: 'vm'
+            })
+            .state('triangular-no-scroll.admin-default-no-scroll.location.locDetails',
                 {
-                    name: 'Students',
-                    state: 'triangular-no-scroll.admin-default-no-scroll.student',
-                    icon: 'zmdi zmdi-time',
-                    type: 'link'
-                }
+                    url: 'Details/:id',
+                    templateUrl: 'app/pt/Admin/Location_info/location_Details.tmpl.html',
+                    controller: 'LocationDetailsController',
+                    controllerAs: 'vm'
+                })
 
 
-            ]
-        });
+        //triMenuProvider.addMenu({
+        //    name: 'Admin',
+        //    icon: 'zmdi zmdi-view-list-alt',
+        //    type: 'dropdown',
+        //    priority: 1.5,
+        //    children: [{
+        //        name: 'Instructor',
+        //        state: 'triangular-no-scroll.admin-default-no-scroll.instructor',
+        //        icon: 'zmdi zmdi-account-box',
+        //        type: 'link'
+        //    },{
+        //        name: 'student_information',
+        //        state: 'triangular.admin-default.student_information',
+        //        icon: 'zmdi zmdi-library',
+        //        type: 'link'
+        //    },{
+        //        name: 'blank-3',
+        //        state: 'triangular.admin-default.extra-blank',
+        //        icon: 'zmdi zmdi-view-list-alt',
+        //        type: 'link'
+        //    }]
+        //});
 
         $authProvider.facebook({
             clientId: '255268371341858'

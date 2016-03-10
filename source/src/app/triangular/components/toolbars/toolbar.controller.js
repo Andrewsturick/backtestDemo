@@ -26,8 +26,10 @@
         function init()
         {
             //if session load it in vm.fbusername
-            if($cookieStore.get('fblog'))
-            vm.fbUserName=$cookieStore.get('fblog');
+            if($cookieStore.get('fblog')) {
+                vm.fbUserName = $cookieStore.get('fblog');
+
+            }
         }
         init();
         ////////////////
@@ -124,10 +126,11 @@
                     clickOutsideToClose:true,
                     fullscreen: useFullScreen
                 })
-                .then(function(answer) {
+               .then(function(answer) {
                     //save
                     $cookieStore.put('fblog',answer);
                     vm.fbUserName = answer;
+
                     triMenu.addMenu({
                         name: 'Admin',
                         icon: 'zmdi zmdi-view-list-alt',
@@ -144,9 +147,14 @@
                             icon: 'zmdi zmdi-library',
                             type: 'link'
                         },{
-                            name: 'blank-3',
-                            state: 'triangular.admin-default.extra-blank',
-                            icon: 'zmdi zmdi-view-list-alt',
+                            name: 'Location',
+                            state: 'triangular-no-scroll.admin-default-no-scroll.location',
+                            icon: 'zmdi zmdi-globe-alt',
+                            type: 'link'
+                        },{
+                            name: 'Timeslot',
+                            state: 'triangular-no-scroll.admin-default-no-scroll.timeslot',
+                            icon: 'zmdi zmdi-time',
                             type: 'link'
                         }]
                     });

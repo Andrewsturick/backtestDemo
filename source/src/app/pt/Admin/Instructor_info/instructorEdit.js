@@ -9,13 +9,22 @@
         .controller('InstructorEditController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl($state) {
+    function fnCtrl($state,breezeService) {
         var vm = this;
-
+            vm.myfunc=myfunc;
 
         vm.backbutton=backbutton;
 
+        function myfunc(instructorinfo)
+        {
+            var data={
+                    Name:instructorinfo.data.instructor.Name,
+                    Style:instructorinfo.data.instructor.style,
+                     isopen:false
+                };
+            breezeService.createEntity('instructors', data);
 
+        }
 
 
 

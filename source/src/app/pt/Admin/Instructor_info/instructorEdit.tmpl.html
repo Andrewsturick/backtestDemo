@@ -109,7 +109,7 @@
                                ng-hide = "triWizard.progress == 100 && triWizard.currentStep ==1"
                                ng-disabled = "triWizard.nextStepDisabled()" translate = "NEXT"></md-button>
                     <md-button class = "md-accent md-raised"
-                               ng-click = "triWizard.currentStep=2;vm.myfunc(wizardController);triWizard.progress =0"
+                               ng-click = "vm.myfunc(wizardController)"
                                ng-show = "triWizard.progress == 100 && triWizard.currentStep <2"
                                translate = "SUBMIT"></md-button>
                 </div>
