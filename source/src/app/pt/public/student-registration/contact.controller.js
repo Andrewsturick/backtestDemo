@@ -100,7 +100,7 @@
                 TimeslotId: parseInt(formData.confirm.timeslot)
             }
             breezeService.createEntity('Student_Registration', data);
-            uploadFiles(formData.student.file)
+            uploadFiles(formData.student.file);
 
         }
 

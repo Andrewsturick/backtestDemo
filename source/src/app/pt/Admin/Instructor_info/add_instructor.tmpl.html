@@ -105,12 +105,9 @@
             </md-tabs>
 
             <div class = "wizard-navbar" layout-fill layout-padding layout = "row" layout-align = "end center">
-                <md-button class = "md-primary md-raised" ng-click = "triWizard.nextStep()"
-                           ng-hide = "triWizard.progress == 100 && triWizard.currentStep ==1"
-                           ng-disabled = "triWizard.nextStepDisabled()" translate = "NEXT"></md-button>
                 <md-button class = "md-accent md-raised"
-                           ng-click = "triWizard.currentStep=2;vm.myfunc(wizardController);triWizard.progress =0"
-                           ng-show = "triWizard.progress == 100 && triWizard.currentStep <2"
+                           ng-click = "vm.myfunc(wizardController);triWizard.progress =0"
+                           ng-show = "triWizard.progress == 100"
                            translate = "SUBMIT"></md-button>
             </div>
 

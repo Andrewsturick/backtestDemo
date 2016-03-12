@@ -9,21 +9,48 @@
         .controller('InstructorAddController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl($state) {
+    function fnCtrl($state,breezeService) {
         var vm = this;
-
 
         vm.backbutton=backbutton;
 
+        vm.myfunc = function myfunc(instructorInfo) {
+            var formData = instructorInfo.data;
 
+            var data = {
+                Name: formData.instructor.Name,
+                Style: formData.instructor.style,
+                isopen:false,
+                students:null
+                        }
+
+            breezeService.createEntity('Instructor', data);
+            //uploadFiles(formData.instructor.file)
+        }
+
+
+
+        function uploadFiles(files) {
+            Upload.upload({
+                    url: 'http://localhost:60305/breeze/home/',
+                    data: { file: files }
+                })
+                .then(function(response) {
+                    console.log(response)
+
+
+                }, function(err) {
+                    console.log(err)
+                });
+
+
+        }
 
 
 
         function backbutton() {
-            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor.insDetails",{id:23});
+            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor.insDetails");
         }
-
-
 
 
 

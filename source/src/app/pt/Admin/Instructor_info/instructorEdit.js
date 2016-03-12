@@ -9,28 +9,31 @@
         .controller('InstructorEditController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl($state,breezeService) {
+    function fnCtrl($state,breezeService,$stateParams) {
         var vm = this;
             vm.myfunc=myfunc;
 
         vm.backbutton=backbutton;
 
+
+        breezeService.getElementById('Instructor',$stateParams.id,true).then(function (data){
+            wizardController.data.instructor=data.results;
+        });
+
         function myfunc(instructorinfo)
         {
-            var data={
-                    Name:instructorinfo.data.instructor.Name,
-                    Style:instructorinfo.data.instructor.style,
-                     isopen:false
-                };
-            breezeService.createEntity('instructors', data);
+            var changedata=breezeService.getChanges(instructorinfo);
+            for(i=0;i<changedata.length;i++)
+            {changedata.entityAspect.acceptChanges();}
 
         }
 
 
 
-        function backbutton() {
-            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor.insDetails",{id:23});
-        }
+            function backbutton() {
+            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor.insDetails");
+
+            }
 
 
 

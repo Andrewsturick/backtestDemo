@@ -8,7 +8,7 @@
         function fnCtrl( $stateParams, instructorService,$state,breezeService) {
         var vm = this;
 
-        vm.deleteEmail = deleteEmail;
+        vm.delete_instructor = delete_instructor;
         vm.backbutton=backbutton;
         vm.Edit_instructor = Edit_instructor;
 
@@ -24,8 +24,9 @@
             $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
         }
 
-        function deleteEmail() {
-            $scope.$emit('deleteEmail');
+        function delete_instructor(data) {
+            breezeService.deleteinfo('Instructor', data);
+            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
         }
 
 
