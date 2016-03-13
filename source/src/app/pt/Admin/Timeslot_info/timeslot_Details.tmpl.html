@@ -1,42 +1,70 @@
+<md-toolbar class="md-verytall" style="background-image:url(../assets/images/avatars/hair-black-eyes-blue-green-skin-tanned.png);"  md-scroll-shrink>
+    <md-button ng-click="vm.openOrder(order, $event)" class="md-icon-button" aria-label="Open Order">
+        <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+    </md-button>
+</md-toolbar>
+<md-content flex md-theme="altTheme">
 
-<div layout-margin="10" >
-
-    <div class="widget-blog-text" ng-cloak="">
-        <tri-widget style="background-color: #00b0e8;margin-top:-20px;">
-            <h3>Instructor List</h3>
-            <md-divider></md-divider>
-            <div style="background-color: cadetblue" content-layout="row">
-                <md-list >
-
-                    <md-list-item ng-repeat="x in  vm.items">
-                        <img class="md-avatar" ng-src="assets/images/avatars/avatar-3.png">
-                        <p>{{x.Name}}</p>
-                        <md-icon md-font-icon="zmdi zmdi-chat" class="md-primary"></md-icon>
-                        <md-divider ng-hide="$last"></md-divider>
-                    </md-list-item>
-
-                </md-list>
-            </div>
-        </tri-widget>
-
-
-        <tri-widget  style="background-color: #00b0e8;margin-top: 10px;">
-            <h2>Student List</h2>
-            <md-divider></md-divider>
-            <div style="background-color: cadetblue" content-layout="row">
-                <md-list>
-
-                    <md-list-item ng-repeat="x in vm.students">
-                        <img class="md-avatar" ng-src="assets/images/avatars/avatar-6.png">
-                        <p>{{x.firstName}}</p>
-                        <md-icon md-font-icon="zmdi zmdi-chat" class="md-primary"></md-icon>
-                        <md-divider ng-hide="$last"></md-divider>
-                    </md-list-item>
-
-                </md-list>
-            </div>
-        </tri-widget>
-
-    </div>
-
-</div>
+    <section>
+        <md-subheader class="md-primary" sticky-state="next">
+            next
+        </md-subheader>
+        <md-list layout-padding>
+            <md-list-item class="md-3-line" ng-repeat="message in vm.messages">
+                <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
+                <div class="md-list-item-text">
+                    <h3>{{message.what}}</h3>
+                    <h4>{{message.who}}</h4>
+                    <p>
+                        {{message.notes}}
+                    </p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </section>
+    <section>
+        <md-subheader class="md-warn">Late Messages</md-subheader>
+        <md-list layout="column" layout-padding>
+            <md-list-item class="md-3-line" ng-repeat="message in messages">
+                <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
+                <div class="md-list-item-text">
+                    <h3>{{message.what}}</h3>
+                    <h4>{{message.who}}</h4>
+                    <p>
+                        {{message.notes}}
+                    </p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </section>
+    <section>
+        <md-subheader>Read Messages</md-subheader>
+        <md-list layout="column" layout-padding>
+            <md-list-item class="md-3-line" ng-repeat="message in messages">
+                <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
+                <div class="md-list-item-text">
+                    <h3>{{message.what}}</h3>
+                    <h4>{{message.who}}</h4>
+                    <p>
+                        {{message.notes}}
+                    </p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </section>
+    <section>
+        <md-subheader class="md-accent">Archived messages</md-subheader>
+        <md-list layout="column" layout-padding>
+            <md-list-item class="md-3-line" ng-repeat="message in messages">
+                <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
+                <div class="md-list-item-text">
+                    <h3>{{message.what}}</h3>
+                    <h4>{{message.who}}</h4>
+                    <p>
+                        {{message.notes}}
+                    </p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </section>
+</md-content>
