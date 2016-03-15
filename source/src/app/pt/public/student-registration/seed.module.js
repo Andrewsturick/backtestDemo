@@ -2,6 +2,6 @@
     'use strict';
 
     angular
-        .module('pt.contact', [
+        .module('pt.student', [
         ]);
 })();

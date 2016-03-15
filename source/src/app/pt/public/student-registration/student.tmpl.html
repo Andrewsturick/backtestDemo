@@ -15,7 +15,7 @@
                     <div class = "md-toolbar-tools" layout = "row" layout-align = "space-between center">
                         <h2>Student Required details</h2>
 
-                        <h2> {{triWizard.progress}}% <span translate>COMPLETE</span></h2>
+                        <h2> {{triWizard.progress}}% <span translate>Complete</span></h2>
                     </div>
 
                     <md-progress-linear class = "md-accent padding-bottom-10" md-mode = "determinate"
@@ -83,17 +83,15 @@
                                         <md-input-container flex>
                                             <label translate>Phone Number</label>
                                             <input name = "Phno" ng-model = "wizardController.data.student.phno"
-                                                   ng-minlength = "10" ng-maxlength = "10" required>
+                                                   required ng-pattern="/^[0-9]{10}$/" md-maxlength="10">
 
-                                            <div ng-messages = "studentForm.Phno.$error">
-                                                <div ng-message when = "required">
-                                                    <span translate>Please Enter Phone number</span>
+                                            <div ng-messages = "studentForm.Phno.$error"role="alert" multiple>
+                                                <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                                                <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                                                    code.
                                                 </div>
-                                                <div ng-message when = "maxlength">
-                                                    <span translate>Phone Number INVALID</span>
-                                                </div>
-                                                <div ng-message when = "minlength">
-                                                    <span translate>Phone Number INVALID</span>
+                                                <div ng-message="md-maxlength" class="my-message">
+                                                    Don't use the long version silly...we don't need to be that specific...
                                                 </div>
                                             </div>
                                         </md-input-container>
@@ -172,7 +170,7 @@
                                     </md-input-container>
                                     <div layout layout-xs = "column" flex>
                                         <md-input-container flex>
-                                            <label translate>TOWN</label>
+                                            <label translate>City</label>
                                             <input name = "town" ng-model = "wizardController.data.address.town"
                                                    required>
 
@@ -187,7 +185,7 @@
                                             <label translate>State</label>
                                             <md-select ng-change = "triWizard.updateProgress()" name = "State"
                                                        ng-model = "wizardController.data.address.State" required>
-                                                <md-option value = "UP" translate>UP</md-option>
+                                                <md-option value = "Washington" translate>UP</md-option>
                                                 <md-option value = "MAHARASTRA" translate>MAHARASTRA</md-option>
                                                 <md-option value = "Uttrakhand" translate>Uttrakhand</md-option>
                                             </md-select>
@@ -202,11 +200,16 @@
                                             <md-input-container flex>
                                                 <label translate>ZIP</label>
                                                 <input name = "zip" ng-model = "wizardController.data.address.zip"
-                                                       required>
+                                                       placeholder="12345"
+                                                       required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
 
-                                                <div ng-messages = "addressForm.zip.$error">
-                                                    <div ng-message when = "required">
-                                                        <span translate>PLEASE-ENTER Zip Code</span>
+                                                <div ng-messages = "addressForm.zip.$error" role="alert" multiple>
+                                                        <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                                                        <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                                                            code.
+                                                        </div>
+                                                    <div ng-message="md-maxlength" class="my-message">
+                                                        Don't use the long version silly...we don't need to be that specific...
                                                     </div>
                                                 </div>
                                             </md-input-container>

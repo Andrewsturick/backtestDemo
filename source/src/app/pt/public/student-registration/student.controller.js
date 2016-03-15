@@ -2,12 +2,14 @@
     'use strict';
 
     angular
-        .module('pt.contact')
-        .controller('contactController', fn);
+        .module('pt.student')
+        .controller('Controller', fn);
 
     /* @ngInject */
-    function fn(contactmodel, $scope, $timeout, $mdToast, instructormodel, breezeService,Upload) {
+    function fn( $scope, $timeout, $mdToast, instructormodel, breezeService,Upload) {
         var vm = this;
+        this.submitform=submitform;
+
         vm.data = {};
         //todo:put it on vm
         $scope.myDate = new Date();
@@ -106,9 +108,9 @@
 
         function uploadFiles(files) {
             Upload.upload({
-                url: 'http://localhost:60305/breeze/home/',
-                data: { file: files }
-            })
+                    url: 'http://localhost:60305/breeze/home/',
+                    data: { file: files }
+                })
                 .then(function(response) {
                     console.log(response)
 
@@ -119,5 +121,10 @@
 
 
         }
+    }
+
+    function  submitform(vms)
+    {
+        console.log(vms.STinfo);
     }
 })();
