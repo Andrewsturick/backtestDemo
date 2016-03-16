@@ -28,7 +28,6 @@
             //if session load it in vm.fbusername
             if($cookieStore.get('fblog')) {
                 vm.fbUserName = $cookieStore.get('fblog');
-
             }
         }
         init();
@@ -95,14 +94,6 @@
         $scope.$on('newMailNotification', function(){
             vm.emailNew = true;
         })
-        //$rootScope.$on('notifyFBUser', function(event,data){
-        //    vm.fbUserName  = data.userName;
-        //});
-        //
-        //function goToFbLogin()
-        //{
-        //    $state.go("authentication.login");
-        //}
 
         $scope.showAdvanced = function(ev) {
             if(vm.fbUserName)

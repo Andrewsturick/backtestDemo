@@ -33,14 +33,15 @@
     "textAngular": "~1.3.7",
     "weather-icons": "https://github.com/chk1/weather-icons.git#master",
     "ng-file-upload": "~9.0.13",
-     "breeze-client":"~1.5.4",
-      "satellizer":"",
-      "angular-facebook":"",
-      "angular-filter":"",
-      "angular-resizable":"",
-      "angular-video-bg": ""
+    "breeze-client": "~1.5.4",
+    "satellizer": "",
+    "angular-facebook": "",
+    "angular-filter": "",
+    "angular-resizable": "",
+    "angular-video-bg": "",
+    "motion-ui": "^1.2.2",
+      "lightslider":""
   },
-
   "devDependencies": {
     "angular-mocks": "1.4.8"
   },
@@ -69,12 +70,12 @@
         "ng-file-upload.js"
       ]
     },
-      "breeze-client": {
-          "main": [
-              "breeze.debug.js",
-              "./build/adapters/breeze.bridge.angular.js"
-          ]
-      }
+    "breeze-client": {
+      "main": [
+        "breeze.debug.js",
+        "./build/adapters/breeze.bridge.angular.js"
+      ]
+    }
   },
   "resolutions": {
     "angular": "1.4.8",

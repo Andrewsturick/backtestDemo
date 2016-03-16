@@ -1,7 +1,7 @@
 
-<div layout-margin="10" >
+<div layout-margin="10" ng-cloak="">
 
-    <tri-widget md-scroll-shrink   background-image="assets/images/avatars/avatar-4.png"  style="height:450px;">
+    <tri-widget  background-image="assets/images/avatars/avatar-4.png"  style="height:450px;" >
 
         <div layout-align="row">
 
@@ -44,8 +44,8 @@
         <h2 style="margin-top: 350px;margin-left: 10px;"><u>Name :<em>{{vm.item.Name}}</em></u></h2>
     </tri-widget>
 
-    <div class="widget-blog-text" ng-cloak="">
-        <md-fab-speed-dial md-direction="left" class="md-fling" style="margin-top: -40px;margin-left: 200px;">
+    <div class="widget-blog-text"  ng-cloak flex>
+        <md-fab-speed-dial md-direction="{{vm.fabDirection}}" class="md-fling" style="margin-top: -40px;margin-left: 170px;" md-open="vm.fabStatus" ng-class="vm.fabAnimation">
             <md-fab-trigger>
                 <md-button aria-label="share this post" class="md-fab md-warn">
                     <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>

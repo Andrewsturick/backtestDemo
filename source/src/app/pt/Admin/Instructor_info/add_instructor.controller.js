@@ -9,7 +9,7 @@
         .controller('InstructorAddController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl($state,breezeService) {
+    function fnCtrl($state,breezeService,instructorService) {
         var vm = this;
 
         vm.backbutton=backbutton;
@@ -24,8 +24,10 @@
                 students:null
                         }
 
+
             breezeService.createEntity('Instructor', data);
             //uploadFiles(formData.instructor.file)
+            instructorService.a.push(data);
         }
 
 
