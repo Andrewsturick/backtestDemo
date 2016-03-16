@@ -9,20 +9,30 @@
         .controller('LocationController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl(locationmodel,contactmodel, $scope, $timeout,$mdMedia, $mdToast,$state, instructormodel, breezeService) {
+    function fnCtrl($scope,$mdMedia,$state, breezeService) {
         var vm = this;
         vm.getDetail = getDetail;
-        vm.items = locationmodel.getData();
+        vm.add_location=add_location;
 
+        breezeService.getEntities('location').then(function (data)
+        {
+            vm.items = data.results;
+        });
         function openlist()
         {
             vm.isViewMobile = false;
             $state.go("triangular-no-scroll.admin-default-no-scroll.location");
         }
 
+        function add_location()
+        {
+            $state.go("triangular-no-scroll.admin-default-no-scroll.location.addDetails");
+        }
 
         function getDetail(test)
         {
+
+
             vm.isViewMobile = $mdMedia('xs');
             $state.go("triangular-no-scroll.admin-default-no-scroll.location.locDetails",
                 {
@@ -31,10 +41,6 @@
 
         }
 
-        breezeService.getEntities('location').then(function (data)
-        {
-            vm.items = data.results;
-        });
     }
 
 

@@ -39,7 +39,6 @@
 
 
 
-
             .state('triangular-no-scroll.admin-default-no-scroll.student', {
                 url: '/Admin/student',
                 templateUrl: 'app/pt/Admin/student_info/student.tmpl.html',
@@ -73,6 +72,13 @@
                 controller: 'TimeslotDetailsController',
                 controllerAs: 'vm'
             })
+            .state('triangular-no-scroll.admin-default-no-scroll.timeslot.addDetails',
+                {
+                    url: 'add/:id',
+                    templateUrl: 'app/pt/Admin/Timeslot_info/add_timeslot.tmpl.html',
+                    controller: 'timeslotAddController',
+                    controllerAs: 'vm'
+                })
 
             .state('triangular-no-scroll.admin-default-no-scroll.location', {
                 url: '/Admin/location/',
@@ -87,7 +93,13 @@
                     controller: 'LocationDetailsController',
                     controllerAs: 'vm'
                 })
-
+            .state('triangular-no-scroll.admin-default-no-scroll.location.addDetails',
+                {
+                    url: 'add/:id',
+                    templateUrl: 'app/pt/Admin/Location_info/add_location.tmpl.html',
+                    controller: 'locationAddController',
+                    controllerAs: 'vm'
+                })
 
         //triMenuProvider.addMenu({
         //    name: 'Admin',

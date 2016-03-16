@@ -9,9 +9,10 @@
         .controller('TimeslotController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl(locationmodel,contactmodel, $scope, $timeout,$mdMedia, $mdToast,$state, instructormodel, breezeService,Upload) {
+    function fnCtrl($mdMedia,$state, breezeService) {
         var vm = this;
         vm.getDetail = getDetail;
+        vm.add_timeslot=add_timeslot;
 
 
         function openlist()
@@ -19,7 +20,10 @@
             vm.isViewMobile = false;
             $state.go("triangular-no-scroll.admin-default-no-scroll.timeslot");
         }
-
+        function add_timeslot()
+        {
+            $state.go("triangular-no-scroll.admin-default-no-scroll.timeslot.addDetails");
+        }
 
         function getDetail(test)
         {
@@ -31,7 +35,7 @@
 
         }
 
-        breezeService.getEntities('TimeSlot').then(function (data)
+        breezeService.getEntities('timeSlot').then(function (data)
         {
             vm.items = data.results;
         });

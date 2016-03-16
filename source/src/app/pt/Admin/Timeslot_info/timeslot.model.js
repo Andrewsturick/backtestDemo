@@ -6,7 +6,7 @@
 
     angular
         .module('pt.Admin')
-        .service('locationService', fn);
+        .service('timeslotService', fn);
 
     /* @ngInject */
     function fn(breezeService)
@@ -14,7 +14,7 @@
 
         var a=[];
 
-        breezeService.getEntities('location').then(function (data) {
+        breezeService.getEntities('timeslot').then(function (data) {
 
             a = data.results;
         });

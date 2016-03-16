@@ -5,7 +5,7 @@
         .module('app.examples', [
             'pt.home',
             'pt.instructor',
-            'pt.contact',
+            'pt.student',
             'pt.location',
             //'pt.Admin',
            'app.examples.authentication',
