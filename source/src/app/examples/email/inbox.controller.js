@@ -21,7 +21,8 @@
 
         ////////////////////
 
-        function createEmailGroups() {
+        function createEmailGroups()
+        {
             // create email groups using the emails from the resolve
             if(emails.status === 200) {
                 vm.emails = emails.data;

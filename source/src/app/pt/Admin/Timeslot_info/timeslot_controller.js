@@ -9,7 +9,8 @@
         .controller('TimeslotController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl($mdMedia,$state, breezeService) {
+    function fnCtrl($mdMedia,$state, breezeService,$scope)
+    {
         var vm = this;
         vm.getDetail = getDetail;
         vm.add_timeslot=add_timeslot;
@@ -35,11 +36,14 @@
 
         }
 
-        breezeService.getEntities('timeSlot').then(function (data)
+        breezeService.getEntities('timeslot').then(function (data)
         {
             vm.items = data.results;
         });
+
+        $scope.$on('backbutton', openlist);
     }
+
 
 
 })();

@@ -1,4 +1,5 @@
 <md-content class="email-single md-padding">
+    <div md-whiteframe="3">
     <md-card flex>
         <md-toolbar class="toolbar-default" md-theme="{{triSkin.elements.toolbar}}">
             <div layout="row" layout-align="space-between start">
@@ -14,6 +15,7 @@
                 </div>
                 <div layout="row" layout-align="space-between center">
                     <span class="md-caption" am-time-ago="vm.email.date"></span>
+
                     <md-menu>
                         <md-button class="md-icon-button" aria-label="Open email interactions menu" ng-click="menuClick($event);$mdOpenMenu();">
                             <md-icon md-font-icon="zmdi zmdi-more-vert"></md-icon>
@@ -64,4 +66,5 @@
         </md-card-content>
 
     </md-card>
+        </div>
 </md-content>

@@ -27,27 +27,6 @@
 
             var promise=breezeService.getEntities('instructors',"students");
             return promise;
-
-
-                //instructormodel.getData().then(function (data) {
-                //    vm.items = data;
-                //})
-
-            //var promise;
-            //var query= breeze.EntityQuery.from('instructor')
-            //var deferred=$q.defer();
-            //manager.executeQuery(query).then(function(result){
-            //    //deferred.resolve(result);
-            //    var query= breeze.EntityQuery.from('instructor')
-            //    var arrData =  manager.executeQueryLocally(query);
-            //    deferred.resolve(arrData);
-            //})
-            //
-            //promise=deferred.promise;
-            //return promise;
-
-
-
          }
 
 

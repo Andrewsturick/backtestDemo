@@ -9,17 +9,19 @@
         .controller('locationAddController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl($state,breezeService,locationService) {
+    function fnCtrl($state,breezeService,locationService,$mdDialog) {
         var vm = this;
-
-
         vm.backbutton=backbutton;
-
+        vm.cancel=cancel;
+        function cancel()
+        {
+            $mdDialog.cancel();
+        }
         vm.myfunc = function myfunc(LocationInfo) {
             var formData = LocationInfo.data;
 
             var data = {
-                title: formData.location.title,
+                title: formData.location.title
             }
 
 

@@ -9,18 +9,15 @@
         .controller('timeslotAddController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl($state,breezeService,timeslotService) {
+    function fnCtrl($state,$scope,breezeService,timeslotService) {
         var vm = this;
-
-
         vm.backbutton=backbutton;
-
-
-        vm.myfunc = function myfunc(TimeslotInfo) {
+        vm.myfunc = function myfunc(TimeslotInfo)
+        {
             var formData = TimeslotInfo.data;
 
             var data = {
-                title: formData.timeslot.title,
+                title: formData.timeslot.title
             }
 
 
@@ -31,8 +28,12 @@
 
 
 
-        function backbutton() {
-            $state.go("triangular-no-scroll.admin-default-no-scroll.timeslot.timeDetails",{id:23});
+        function backbutton()
+
+        {
+            $scope.$emit('backbutton');
+
+            //$state.go("triangular-no-scroll.admin-default-no-scroll.timeslot");
         }
 
 

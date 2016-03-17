@@ -5,7 +5,7 @@
         .module('pt.Admin')
         .controller('studentDetailsController', fnCtrl);
 
-    function fnCtrl( $stateParams, studentService,$state,breezeService) {
+    function fnCtrl( $stateParams,$scope, studentService,$state,breezeService) {
         var vm = this;
 
         vm.deleteEmail = deleteEmail;
@@ -22,7 +22,7 @@
 
 
         function backbutton() {
-            $state.go("triangular-no-scroll.admin-default-no-scroll.student");
+            $scope.$emit('backbutton');
         }
 
         function deleteEmail() {

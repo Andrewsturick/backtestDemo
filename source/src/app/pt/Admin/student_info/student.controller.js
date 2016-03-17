@@ -32,7 +32,7 @@
                 });
 
         }
-        $scope.$on('closeItem', openlist);
+        $scope.$on('backbutton', openlist);
 
 
 

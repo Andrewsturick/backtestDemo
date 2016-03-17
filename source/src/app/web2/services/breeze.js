@@ -21,7 +21,6 @@
         this.getEntities       = getEntities;
         this.createEntity      = createEntity;
         this.getEntityById     = getEntityById;
-        this.deleteinfo        = deleteinfo;
         //
         function getMetadata() {
             var self = this;
@@ -56,7 +55,8 @@
                     return $q.when(entity);
                 }
             }
-
+            // Hit the server
+            // It was not found in cache, so let's query for it.
             return manager.fetchEntityByKey(entityName, id).catch(_queryFailed);
         }
         //
@@ -88,7 +88,6 @@
             $rootScope.$emit('loadedActivity');
             $rootScope.$emit('service-error', error);
         }
-
 
         function deleteinfo(entityName,deletedata)
         {

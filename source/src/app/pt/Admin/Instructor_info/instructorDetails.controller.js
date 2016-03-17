@@ -5,7 +5,7 @@
         .module('pt.Admin')
         .controller('InstructorDetailsController', fnCtrl);
 
-        function fnCtrl( $stateParams, instructorService,$state,breezeService) {
+        function fnCtrl( $stateParams, $scope,instructorService,$state,breezeService) {
         var vm = this;
             var vm = this;
             vm.fabDirections = ['up', 'down', 'left', 'right'];
@@ -37,10 +37,9 @@
 
 
 
-        function backbutton() {
-            $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");
-        }
-
+            function backbutton() {
+                $scope.$emit('backbutton');
+            }
         function delete_instructor(data) {
             breezeService.deleteinfo('Instructor', data);
             $state.go("triangular-no-scroll.admin-default-no-scroll.instructor");

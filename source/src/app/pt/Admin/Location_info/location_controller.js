@@ -41,6 +41,8 @@
 
         }
 
+        $scope.$on('backbutton', openlist);
+
     }
 
 

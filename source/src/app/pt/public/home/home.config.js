@@ -6,7 +6,8 @@
         .config(moduleConfig);
 
     /* @ngInject */
-    function moduleConfig($translatePartialLoaderProvider, $stateProvider, triMenuProvider) {
+    function moduleConfig($translatePartialLoaderProvider, $stateProvider, triMenuProvider)
+    {
         $translatePartialLoaderProvider.addPart('app/home');
 
         $stateProvider

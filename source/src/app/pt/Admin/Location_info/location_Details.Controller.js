@@ -6,13 +6,14 @@
         .controller('LocationDetailsController', fnCtrl);
 
     /* @ngInject */
-    function fnCtrl( $stateParams, instructorService,instructormodel,$state,breezeService) {
+    function fnCtrl( $stateParams, $scope,instructorService,instructormodel,$state,breezeService) {
         var vm = this;
         vm.backbutton=backbutton;
         vm.item = instructorService.getDetail($stateParams.id)[0];
         function backbutton() {
-            $state.go("triangular-no-scroll.admin-default-no-scroll.location");
+            $scope.$emit('backbutton');
         }
+
 
         instructormodel.getData().then(function (data)
         {
