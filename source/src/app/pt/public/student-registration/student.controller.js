@@ -8,8 +8,6 @@
     /* @ngInject */
     function fn( $scope, $timeout, $mdToast, instructormodel, breezeService,Upload) {
         var vm = this;
-        this.submitform=submitform;
-
         vm.data = {};
         //todo:put it on vm
         $scope.myDate = new Date();
@@ -26,12 +24,7 @@
             return day === 0 || day === 6;
         }
 
-
-
-
         vm.status = 'idle';  // idle | uploading | complete
-        vm.upload = upload;
-
 
         instructormodel.getData().then(function (data) {
             vm.data.instructor = data.results;
@@ -46,42 +39,6 @@
         });
 
 
-        var fileList;
-
-        function upload($files) {
-            if ($files !== null && $files.length > 0) {
-                fileList = $files;
-
-                uploadStarted();
-
-                $timeout(uploadComplete, 4000);
-            }
-        }
-
-        function uploadStarted() {
-            vm.status = 'uploading';
-        }
-
-        function uploadComplete() {
-            vm.status = 'complete';
-            var message = 'Thanks for ';
-            for (var file in fileList) {
-                message += fileList[file].name + ' ';
-            }
-            $mdToast.show({
-                template: '<md-toast><span flex>' + message + '</span></md-toast>',
-                position: 'bottom right',
-                hideDelay: 5000
-            });
-
-            $timeout(uploadReset, 3000);
-        }
-
-        function uploadReset() {
-            vm.status = 'idle';
-        }
-
-
         vm.myfunc = function myfun(studentInfo) {
             var formData = studentInfo.data;
 
@@ -94,37 +51,34 @@
                 ContactNo: formData.student.phno,
                 address: formData.address.line1,
                 City: formData.address.town,
-                zip: parseInt(formData.address.zip) ,
+                zip: parseInt(formData.address.zip),
                 state: formData.address.State,
                 country: formData.address.country,
                 InstructorId: parseInt(formData.confirm.instuctor),
                 locationId: parseInt(formData.confirm.location),
                 TimeslotId: parseInt(formData.confirm.timeslot)
             }
-            breezeService.createEntity('Student_Registration', data);
-            uploadFiles(formData.student.file);
-
+            breezeService.createEntity('Student_Registration', data).then(function (data) {
+                var entityId = data.entities[0].Id;
+                uploadFiles(formData.student.file, entityId);
+            });
         }
 
-        function uploadFiles(files) {
+        function uploadFiles(files, entityId) {
             Upload.upload({
-                    url: 'http://localhost:60305/breeze/home/',
-                    data: { file: files }
-                })
-                .then(function(response) {
+                url: 'http://w2idemo.azurewebsites.net/breeze/home/Upload',
+                data: {
+                    file: files,
+                    entityId: entityId
+                }
+            })
+                .then(function (response) {
                     console.log(response)
 
 
-                }, function(err) {
+                }, function (err) {
                     console.log(err)
                 });
-
-
         }
-    }
-
-    function  submitform(vms)
-    {
-        console.log(vms.STinfo);
     }
 })();

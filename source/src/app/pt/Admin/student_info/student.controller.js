@@ -9,11 +9,26 @@
     function fnCtrl(breezeService,$scope, $state,$mdMedia,$mdDialog) {
         var vm = this;
         vm.getDetail = getDetail;
+        vm.getImage = getImage;
+        vm.images = [];
+        function getImage(studentId)
+        {
+            var obj = vm.images.filter(function ( image ) {
+                return image.studentId === studentId;
+            })[0];
 
+            return  "data:image/jpeg;base64," + obj.Image;
+        }
 
         breezeService.getEntities('students').then(function (data) {
             vm.items = data.results;
         });
+
+        breezeService.getEntities('Images').then(function (data) {
+            vm.images = data.results;
+        });
+
+
 
         function openlist()
         {
@@ -25,6 +40,7 @@
 
         function getDetail(test)
         {
+
             vm.isViewMobile = $mdMedia('xs');
             $state.go("triangular-no-scroll.admin-default-no-scroll.student.studentDetails",
                 {
@@ -32,7 +48,7 @@
                 });
 
         }
-        $scope.$on('backbutton', openlist);
+        $scope.$on('closeItem', openlist);
 
 
 

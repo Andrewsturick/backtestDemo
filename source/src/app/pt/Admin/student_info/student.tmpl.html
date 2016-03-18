@@ -9,20 +9,20 @@
                 <md-subheader  class="md-primary">Name:{{::key}}</md-subheader>
                 <md-divider></md-divider>
                 <md-list>
-                    <md-list-item class="email-inbox-list-item email-inbox-list-animate-repeat md-3-line"
-                                  ng-repeat="item in value" ng-click="vm.getDetail(item)"
+                    <md-list-item class="email-inbox-list-item email-inbox-list-animate-repeat md-3-line" ng-repeat="item in value" ng-click="vm.getDetail(item)"
                                   ng-class="{ active: selectedMail === item.Id, 'email-inbox-list-item-unread': item.unread }">
-                        <img class="md-avatar animate" ng-src="assets/images/avatars/avatar-4.png">
+                        <div layout="row" layout-align="space-between center">
+                            <img  ng-src= "{{vm.getImage(item.Id)}}"  class="thumbImage">
+                            <div class="md-list-item-text">
+                                <div class="email-inbox-list-item-name-time" layout="row" layout-align="space-between ">
+                                    <h3>{{item.firstName}}</h3>
 
-                        <div class="md-list-item-text">
-                            <div class="email-inbox-list-item-name-time" layout="row"
-                                 layout-align="space-between start">
-                                <h3>{{item.firstName}}</h3>
-                                <p class="md-caption" am-time-ago="email.date"></p>
+                                </div>
+                                <h4>{{item.address}}</h4>
+
                             </div>
-                            <h4>{{item.address}}</h4>
-                            <p>{{item.email}}</p>
                         </div>
+
 
                         <md-divider></md-divider>
                     </md-list-item>
