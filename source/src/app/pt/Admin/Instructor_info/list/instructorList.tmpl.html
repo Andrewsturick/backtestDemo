@@ -1,4 +1,5 @@
 <div class="email-inbox full-height overflow-hidden instructorList" ng-style="{height: vm.windowHeight + 'px'}" layout="row">
+
     <div class="email-inbox-list md-whiteframe-z1" flex="100" flex-gt-xs="50" flex-gt-lg="40" ng-show="!vm.isViewMobile" layout="column" layout-fill>
         <md-content>
             <section class="email-inbox-list-animate-repeat" ng-repeat="(key, value) in vm.items | groupBy:'Style' " ng-if="vm.items.length > 0">
