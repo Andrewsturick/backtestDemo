@@ -40,7 +40,7 @@
         function openSideNav(navID) {
             $mdUtil.debounce(function(){
                 $mdSidenav(navID).toggle();
-            }, 300)();
+            }, 0)();
         }
 
         function switchLanguage(languageCode) {

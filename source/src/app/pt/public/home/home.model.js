@@ -8,17 +8,10 @@
         .module('pt.home')
         .service('homemodel', SalesService);
 
-
     /* @ngInject */
     function SalesService(breeze, $q)
     {
         this.getData = getData;
-
-
-    var serviceName='http://w2idemo.azurewebsites.net/breeze/home/';
-        var manager = new breeze.EntityManager(serviceName);
-
-
         function getData()
         {
             var a ={
@@ -29,19 +22,7 @@
                 "The team have been consistently delivering industry leading Office Customizations to its valued customers for over a decade."
 
             };
-
             return a;
-
-            //var promise;
-            //var query= breeze.EntityQuery.from('getcontent')
-            //var deferred=$q.defer();
-            //manager.executeQuery(query).then(function(result){
-            //    deferred.resolve(result);
-            //})
-            //
-            //promise=deferred.promise;
-            //
-            //return promise;
         }
     }
 })();

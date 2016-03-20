@@ -1,21 +1,17 @@
-<md-content id = "test345" class = "padded-content-page overlay-20 ">
+<md-content  class = "  overlay-20 ">
 
-    <div>
 
-        <div layout = "row" layout-align = "center center">
-            <p flex = "70" flex-xs = "90" class = "md-headline font-weight-300 text-center text-light" translate>Student
-                Registration</p>
-        </div>
 
-        <div flex layout = "row" layout-align = "center center" layout-fill>
+
+        <div flex layout = "row" layout-align = "center center" layout-fill layour-margin>
 
             <div flex = "100" class = "md-whiteframe-z1 margin-bottom-100 margin-up-100" tri-wizard>
                 <md-toolbar class = "md-primary">
 
-                    <div class = "md-toolbar-tools" layout = "row" layout-align = "space-between center">
-                        <h2>Student Required details</h2>
+                    <div class = "md-toolbar-tools" layout = "row" layout-align = "end center">
 
-                        <h2> {{triWizard.progress}}% <span translate>Complete</span></h2>
+
+                        <h5 clas="md-caption"> {{triWizard.progress}}% <span translate>Complete</span></h5>
                     </div>
 
                     <md-progress-linear class = "md-accent padding-bottom-10" md-mode = "determinate"
@@ -96,28 +92,25 @@
                                             </div>
                                         </md-input-container>
                                     </div>
-                                    <div layout layout-xs-gt = "row">
+                                    <div layout="row" layout-align="space-between">
 
-                                        <md-input-container class="md-block" flex-gt-xs layout-align="top">
-                                            <label translate>Gender</label>
+
+
                                             <md-select ng-change = "triWizard.updateProgress()" name = "Gender" ng-model = "wizardController.data.student.Gender" required>
                                                 <md-option value = "Male" translate>Male</md-option>
                                                 <md-option value = "Female" translate>Female</md-option>
                                             </md-select>
-                                            <div ng-messages = "studentForm.Gender.$error">
-                                                <div ng-message when = "required">
-                                                    <span translate>Please Select Gender</span>
-                                                </div>
-                                            </div>
-                                        </md-input-container>
 
-                                        <md-datepicker name = "dob" ng-model = "wizardController.data.student.dob" flex-gt-xs md-placeholder = "Enter date" required></md-datepicker>
+
+
+                                             <md-datepicker name = "dob" ng-model = "wizardController.data.student.dob" flex-gt-xs md-placeholder = "Enter date" required></md-datepicker>
+
                                         <!--date validation put here-->
                                     </div>
 
 
 
-                                    <md-input-container>
+
                                         <div layout="row" flex>
                                             <div layout="column" flex="50">
                                                 <md-button class="md-fab" ngf-select ng-model="wizardController.data.student.file" name="file" ngf-pattern="'image/*'"
@@ -131,12 +124,12 @@
                                             </div>
 
                                             <div layout="column">
-                                                <img  ngf-src="wizardController.data.student.file"  class="thumb">
+                                                <img  ngf-src="wizardController.data.student.file"  class="thumbImage">
                                             </div>
 
                                         </div>
 
-                                    </md-input-container>
+
 
                                 </form>
                             </md-content>
@@ -308,7 +301,7 @@
 
                 </md-tabs>
 
-                <div class = "wizard-navbar" layout-fill layout-padding layout = "row" layout-align = "end center">
+                <div class = "wizard-navbar" layout-fill  layout = "row" layout-align = "end center">
                     <md-button class = "md-primary md-raised" ng-click = "triWizard.prevStep()"
                                ng-hide = "triWizard.currentStep > 2" ng-disabled = "triWizard.prevStepDisabled()"
                                translate = "PREV"></md-button>
@@ -316,7 +309,7 @@
                                ng-hide = "triWizard.progress == 100 && triWizard.currentStep > 1"
                                ng-disabled = "triWizard.nextStepDisabled()" translate = "NEXT"></md-button>
                     <md-button class = "md-accent md-raised"
-                               ng-click = "triWizard.currentStep=4;vm.myfunc(wizardController);triWizard.progress =0"
+                               ng-click = "triWizard.currentStep=4;vm.submit(wizardController);triWizard.progress =0"
                                ng-show = "triWizard.progress == 100 && triWizard.currentStep <4"
                                translate = "SUBMIT"></md-button>
                 </div>
@@ -325,6 +318,6 @@
 
         </div>
 
-    </div>
+
 
 </md-content>

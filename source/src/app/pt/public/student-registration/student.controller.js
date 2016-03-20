@@ -6,40 +6,18 @@
         .controller('Controller', fn);
 
     /* @ngInject */
-    function fn( $scope, $timeout, $mdToast, instructormodel, breezeService,Upload) {
+    function fn( $scope,  $mdToast,  breezeService,Upload,$rootScope) {
         var vm = this;
         vm.data = {};
-        //todo:put it on vm
-        $scope.myDate = new Date();
-        $scope.minDate = new Date(
-            $scope.myDate.getFullYear(),
-            $scope.myDate.getMonth() - 2,
-            $scope.myDate.getDate());
-        $scope.maxDate = new Date(
-            $scope.myDate.getFullYear(),
-            $scope.myDate.getMonth() + 2,
-            $scope.myDate.getDate());
-        $scope.onlyWeekendsPredicate = function (date) {
-            var day = date.getDay();
-            return day === 0 || day === 6;
-        }
 
-        vm.status = 'idle';  // idle | uploading | complete
-
-        instructormodel.getData().then(function (data) {
-            vm.data.instructor = data.results;
-        });
-
-        breezeService.getEntities('TimeSlot').then(function (data) {
-            vm.data.timeslot = data.results;
-        });
-
-        breezeService.getEntities('location').then(function (data) {
-            vm.data.location = data.results;
-        });
+        vm.submit = submit;
 
 
-        vm.myfunc = function myfun(studentInfo) {
+
+
+        function submit(studentInfo) {
+
+            $rootScope.$emit('startProcess')
             var formData = studentInfo.data;
 
             var data = {
@@ -64,6 +42,46 @@
             });
         }
 
+        function init()
+        {
+            $rootScope.$emit('startProcess')
+            breezeService.getEntities('TimeSlot',"","TimeSlot").then(function (data) {
+                if(data.results)
+                {
+                    vm.data.timeslot = data.results;
+                }
+                else {
+                    vm.data.timeslot = data;
+                }
+
+                $rootScope.$emit('endProcess')
+            });
+            $rootScope.$emit('startProcess')
+            breezeService.getEntities('instructors',"","Instructor").then(function (data) {
+                if(data.results)
+                {
+                    vm.data.instructor = data.results;
+                }
+                else {
+                    vm.data.instructor = data;
+                }
+
+                $rootScope.$emit('endProcess')
+            });
+            $rootScope.$emit('startProcess')
+            breezeService.getEntities('location',"","location").then(function (data) {
+                if(data.results)
+                {
+                    vm.data.location = data.results;
+                }
+                else {
+                    vm.data.location = data;
+                }
+
+                $rootScope.$emit('endProcess')
+            });
+        }
+
         function uploadFiles(files, entityId) {
             Upload.upload({
                 url: 'http://w2idemo.azurewebsites.net/breeze/home/Upload',
@@ -73,12 +91,29 @@
                 }
             })
                 .then(function (response) {
-                    console.log(response)
+                    $rootScope.$emit('endProcess')
 
 
                 }, function (err) {
-                    console.log(err)
+                    $rootScope.$emit('endProcess')
                 });
         }
+
+        //todo:put it on vm
+        $scope.myDate = new Date();
+        $scope.minDate = new Date(
+            $scope.myDate.getFullYear(),
+            $scope.myDate.getMonth() - 2,
+            $scope.myDate.getDate());
+        $scope.maxDate = new Date(
+            $scope.myDate.getFullYear(),
+            $scope.myDate.getMonth() + 2,
+            $scope.myDate.getDate());
+        $scope.onlyWeekendsPredicate = function (date) {
+            var day = date.getDay();
+            return day === 0 || day === 6;
+        }
+
+        init();
     }
 })();

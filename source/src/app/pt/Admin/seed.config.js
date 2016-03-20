@@ -11,17 +11,16 @@
 
         $stateProvider
 
-            .state('triangular-no-scroll.admin-default-no-scroll.instructor', {
+            .state('triangular-no-scroll.admin-default-no-scroll.instructorList', {
                 url: '/Admin/instructor/',
-                templateUrl: 'app/pt/Admin/instructor_info/instructor.tmpl.html',
+                templateUrl: 'app/pt/Admin/instructor_info/list/instructorList.tmpl.html',
                 controller: 'InstructorController',
                 controllerAs: 'vm'
             })
-            //Todo:rename this state to readonly
-            .state('triangular-no-scroll.admin-default-no-scroll.instructor.insDetails', {
+            .state('triangular-no-scroll.admin-default-no-scroll.instructorList.read', {
                 url: 'readOnly/:id',
-                templateUrl: 'app/pt/Admin/instructor_info/instructorDetails.tmpl.html',
-                controller: 'InstructorDetailsController',
+                templateUrl: 'app/pt/Admin/instructor_info/readonly/instructorRead.tmpl.html',
+                controller: 'InstructorReadController',
                 controllerAs: 'vm'
             })
             .state('triangular-no-scroll.admin-default-no-scroll.instructor.insEdit', {
@@ -80,6 +79,8 @@
                     controllerAs: 'vm'
                 })
 
+
+
             .state('triangular-no-scroll.admin-default-no-scroll.location', {
                 url: '/Admin/location/',
                 templateUrl: 'app/pt/Admin/Location_info/location.tmpl.html',
@@ -100,6 +101,35 @@
                     controller: 'locationAddController',
                     controllerAs: 'vm'
                 })
+
+
+        triMenuProvider.addMenu({
+            name: 'Admin',
+            icon: 'zmdi zmdi-view-list-alt',
+            type: 'dropdown',
+            priority: 1.5,
+            children: [{
+                name: 'Instructor',
+                state: 'triangular-no-scroll.admin-default-no-scroll.instructorList',
+                icon: 'zmdi zmdi-account-box',
+                type: 'link'
+            },{
+                name: 'student_information',
+                state: 'triangular-no-scroll.admin-default-no-scroll.student',
+                icon: 'zmdi zmdi-library',
+                type: 'link'
+            },{
+                name: 'Location',
+                state: 'triangular-no-scroll.admin-default-no-scroll.location',
+                icon: 'zmdi zmdi-globe-alt',
+                type: 'link'
+            },{
+                name: 'Timeslot',
+                state: 'triangular-no-scroll.admin-default-no-scroll.timeslot',
+                icon: 'zmdi zmdi-time',
+                type: 'link'
+            }]
+        });
 
         //triMenuProvider.addMenu({
         //    name: 'Admin',

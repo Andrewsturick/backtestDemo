@@ -12,12 +12,21 @@
         vm.status = {
             active: true
         };
-        vm.setLoaderActive = setLoaderActive;
+        vm.process = {
+            active: false
+        };
+
+        vm.setLoaderActive  = setLoaderActive;
+        vm.setProcessActive = setProcessActive;
 
         ////////////////
 
         function setLoaderActive(active) {
             vm.status.active = active;
+        }
+
+        function setProcessActive(active) {
+            vm.process.active = active;
         }
     }
 })();

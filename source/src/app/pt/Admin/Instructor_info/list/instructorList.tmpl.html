@@ -1,7 +1,7 @@
-<div class="email-inbox full-height overflow-hidden " layout="row">
-    <div class="email-inbox-list md-whiteframe-z1" flex="100" flex-gt-xs="50" flex-gt-lg="40" ng-show="!vm.isViewMobile" layout="column">
+<div class="email-inbox full-height overflow-hidden instructorList" ng-style="{height: vm.windowHeight + 'px'}" layout="row">
+    <div class="email-inbox-list md-whiteframe-z1" flex="100" flex-gt-xs="50" flex-gt-lg="40" ng-show="!vm.isViewMobile" layout="column" layout-fill>
         <md-content>
-            <section class="email-inbox-list-animate-repeat" ng-repeat="(key, value) in vm.items | groupBy:'firstName' " ng-if="vm.items.length > 0">
+            <section class="email-inbox-list-animate-repeat" ng-repeat="(key, value) in vm.items | groupBy:'Style' " ng-if="vm.items.length > 0">
                 <md-subheader  class="md-primary">Name:{{::key}}</md-subheader>
                 <md-divider></md-divider>
                 <md-list>
@@ -9,11 +9,11 @@
                         <img class=" animate thumbImage1" ng-src= "{{vm.getImage(item.Id)}}"  >
                         <div  class="md-list-item-text padding-10">
                             <div class="email-inbox-list-item-name-time" layout="row" layout-align="space-between start">
-                                <h3>{{item.firstName}}</h3>
-                                <p class="md-caption">2 hours ..</p>
+                                <h3>{{item.Name}}</h3>
+                                <p class="md-title">2 hours ..</p>
                             </div>
-                            <h4>{{item.firstName}}</h4>
-                            <p>{{item.address}}</p>
+                            <h4>{{item.Style}}</h4>
+                            <p>{{item.Style}}</p>
                         </div>
                         <md-divider></md-divider>
                     </md-list-item>
@@ -21,13 +21,13 @@
             </section>
         </md-content>
         <md-button ng-click="vm.EditClick($event)" class="md-fab md-accent md-fab-bottom-right" aria-label="{{'EMAIL.COMPOSE_EMAIL' | translate}}">
-            <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
+            <md-icon md-font-icon="zmdi zmdi-account-add"></md-icon>
         </md-button>
     </div>
-    <div class="animate-wrapper" layout="column" layout-align="start center" flex>
-        <div flex id="ui-admin-email" ui-view layout="column" layout-align="start center" class="overflow-auto">
+    <div class="animate-wrapper"  flex>
+        <div flex id="ui-admin-email" ui-view layout="column"  class="overflow-auto">
             <div flex class="email-inbox-no-email-selected" layout="column" layout-align="center">
-                <h2 hide-xs translate>No student selected</h2>
+                <h2 hide-xs translate>No Instructor selected</h2>
             </div>
         </div>
     </div>

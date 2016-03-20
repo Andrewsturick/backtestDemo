@@ -71,11 +71,11 @@
             // first check if the state is the same
             triMenuItem.item.active = $state.includes(triMenuItem.item.state, triMenuItem.item.params);
             // if we are now the active item reset the breadcrumbs and open all parent dropdown items
-            if(triMenuItem.item.active) {
-                triBreadcrumbsService.reset();
-                triBreadcrumbsService.addCrumb(triMenuItem.item);
-                $scope.$emit('openParents');
-            }
+            //if(triMenuItem.item.active) {
+            //    triBreadcrumbsService.reset();
+            //    triBreadcrumbsService.addCrumb(triMenuItem.item);
+            //    $scope.$emit('openParents');
+            //}
         }
 
         function toggleDropdownMenu() {

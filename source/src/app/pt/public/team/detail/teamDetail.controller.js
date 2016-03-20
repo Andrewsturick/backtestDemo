@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module('pt.instructor')
-        .controller('instructorDetailController', fn);
+        .module('pt.team')
+        .controller('teamDetailController', fn);
 
     /* @ngInject */
     function fn($stateParams)

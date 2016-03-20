@@ -21,6 +21,45 @@
         this.getEntities       = getEntities;
         this.createEntity      = createEntity;
         this.getEntityById     = getEntityById;
+
+        var breezeQueryTracker =function(){
+
+            var queries =[];
+
+            function addQuery(queryToAdd)
+            {
+                queries.push(queryToAdd);
+            }
+
+            function removeQuery(queryToRemove)
+            {
+                //TODO: Implementation
+                returnfalse;
+            }
+
+            function queryExists(query)
+            {
+
+                //check for existing query based on target entity and predicate
+                var matchedQueries =new Array();
+                matchedQueries = _.filter(queries,function(savedQuery){
+                    return savedQuery.resultEntityType == query.resultEntityType &&
+                        savedQuery.wherePredicate.toString()== query.wherePredicate.toString();});
+
+                return matchedQueries.length >0;
+            }
+
+
+            return{
+                queries: queries,
+                add: addQuery,
+                //remove: removeQuery,
+                exists: queryExists
+            };
+        }
+
+
+
         //
         function getMetadata() {
             var self = this;
@@ -60,26 +99,45 @@
             return manager.fetchEntityByKey(entityName, id).catch(_queryFailed);
         }
         //
-        function getEntities(entityName,expandEntity){
+        function getEntities(entityName,expandEntity,entityType){
             var promise;
             var query;
+           // var entityType = breeze.metadataStore.getEntityType(entityName);
             if(expandEntity)
             {
-                query = breeze.EntityQuery.from(entityName).expand(expandEntity)
+                query = breeze.EntityQuery.from(entityName).expand(expandEntity).toType(entityType);
             }
             else{
-                query = breeze.EntityQuery.from(entityName)
+                query = breeze.EntityQuery.from(entityName).toType(entityType);
             }
 
+
+
+
             var deferred = $q.defer();
-            manager.executeQuery(query).
-                then(function(result){
-                    deferred.resolve(result);
-                })
-                .catch(function(error){
-                    deferred.reject(error);
-                } );
             promise = deferred.promise
+            var list = null;
+            try {
+                list = manager.executeQueryLocally(query);
+            }
+            catch (e)
+            {
+                list = null;
+            }
+            if(list && list.length > 0)
+            {
+                deferred.resolve(list);
+            }
+            else {
+                query = breeze.EntityQuery.from(entityName);
+                manager.executeQuery(query).
+                    then(function(result){
+                        deferred.resolve(result);
+                    })
+                    .catch(function(error){
+                        deferred.reject(error);
+                    } );
+            }
             return promise;
         }
 
