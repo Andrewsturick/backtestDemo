@@ -7,6 +7,7 @@
             'pt.team',
             'pt.student',
             'pt.location',
+
             //'pt.Admin',
           // 'app.examples.authentication',
            //'app.examples.calendar',
@@ -22,6 +23,7 @@
            //'app.examples.menu',
            //'app.examples.todo',
            //'app.examples.ui'
-           'pt.Admin'
+           'pt.Admin',
+            'pt.d3'
         ]);
 })();

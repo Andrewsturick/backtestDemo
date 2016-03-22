@@ -13,14 +13,8 @@
     Service.$inject = ['$q', '$rootScope', '$timeout']
     /* @ngInject */
     function Service( $q, $rootScope, $timeout,Upload) {
-
-
         this.getRangeValues       = getRangeValues;
         this.setRangeValues  = setRangeValues
-
-
-
-
         function getRangeValues(selector)
         {
             var deferred = $q.defer();

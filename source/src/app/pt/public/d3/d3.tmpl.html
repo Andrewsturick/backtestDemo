@@ -1,0 +1,18 @@
+<div layout="row" layout-xs="column" layout-align="space-around " layout-margin>
+    <tri-widget flex title="Welcome to d3 demo" title-position="top" palette-background="light-blue:300">
+        <div class="carousel-demo-fullscreen">
+            <ul rn-carousel rn-carousel-controls rn-carousel-transition="hexagon" rn-carousel-index="vm.carouselIndex" rn-carousel-buffered class="">
+                <li ng-repeat="slide in vm.slides track by slide.id" ng-class="'id-' + slide.id">
+                    <div ng-style="{'background-image': 'url(' + slide.img + ')'}"  class="bgimage">
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </tri-widget>
+
+
+    </tri-widget>
+</div>
+
+<h1>Add your demo here</h1>
