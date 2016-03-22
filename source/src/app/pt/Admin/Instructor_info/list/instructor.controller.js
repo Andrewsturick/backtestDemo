@@ -6,11 +6,34 @@
         .controller('InstructorController', fnCtrl);
 
 
-    function fnCtrl(breezeService,$scope, $state,$mdMedia,$mdDialog,$rootScope,$window) {
+    function fnCtrl(breezeService,$scope, $state,$mdMedia,$mdDialog,$rootScope,$window,excelService) {
         var vm = this;
         vm.getDetail = getDetail;
         vm.Add_instructor=Add_instructor;
 
+        vm.export = exportToExcel;
+        vm.cells = [];
+        function exportToExcel()
+        {
+            excelService.getRangeValues("A1:B2").then(function (rows) {
+                vm.cells = [];
+                var cells = [];
+                for (var r = 0; r < rows.length; r++) {
+                    for (var c = 0; c < rows[r].length; c++) {
+                        cells.push({
+                            row: r + 1,
+                            col: $scope.getColumnLetter(c),
+                            value: (rows[r][c].length > 0) ? rows[r][c] : 'empty'
+                        });
+                    }
+                }
+                vm.cells = cells;
+            }).catch(function (err) {
+                console.log(err);
+            }).finally(function () {
+                console.log("done");
+            });
+        }
 
         function Add_instructor()
         {
